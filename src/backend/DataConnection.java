@@ -15,11 +15,10 @@ import java.lang.*;
  */
 public class DataConnection {
    DataConnection(){
-    String listBooks = "SELECT * FROM T_Book";
+    String CompanyName = "SELECT WMC_NAME FROM T_WMC";
     Statement stmt;
 
     try {
-       System.out.println("Example 1");
        System.out.println("Using JDBC + Oracle on java");
        Class.forName("oracle.jdbc.OracleDriver").newInstance();
     } 
@@ -30,20 +29,22 @@ public class DataConnection {
 
     try {
         Connection con = DriverManager.getConnection(
-                    "",
-                    "", 
-                    ""
+                    "jdbc:oracle:thin:@10.0.18.2:1521:orcl",
+                    "mor03625", 
+                    "mor03625"
         );
    
         stmt = con.createStatement();       
-        ResultSet rs =   stmt.executeQuery(listBooks);
-        System.out.println("Executed " + listBooks);
-        while( rs.next()) {
-            String Author = rs.getString("Author");
-            String Title = rs.getString("Title");
-            System.out.println(Author + "  " + Title);
+        ResultSet rs = stmt.executeQuery(CompanyName);
+        System.out.println("Executed " + CompanyName);
+        
+        String name = "Nothing yet";
+        while(rs.next()) {
+            name = rs.getString("WMC_NAME");
+            System.out.println(name);
         }
-  
+        
+        System.out.println(name);
         stmt.close();
         con.close();
         
@@ -55,7 +56,7 @@ public class DataConnection {
  protected void finalize() throws Throwable{
  }
 
- public static void main(String arguments[]){//TODO::Add entry code
+ public static void main(String arguments[]){
     DataConnection ma = new DataConnection();
  } 
 }
