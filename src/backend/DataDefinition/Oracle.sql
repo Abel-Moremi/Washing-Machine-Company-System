@@ -138,20 +138,20 @@ INSERT INTO T_WMC
 VALUES ('Moremi Cooperation');
 
 -- T_Part
-INSERT INTO T_Part
-VALUES ('FK-01245', 'Glass Window');
+INSERT INTO T_Part (part_PartNo, part_description, part_cost)
+VALUES ('FK-01245', 'Glass Window', 20);
 
-INSERT INTO T_Part
-VALUES ('FK-01246', 'Electric Panel');
+INSERT INTO T_Part (part_PartNo, part_description, part_cost)
+VALUES ('FK-01246', 'Electric Panel', 10);
 
-INSERT INTO T_Part
-VALUES ('FK-01247', 'Motor');
+INSERT INTO T_Part (part_PartNo, part_description, part_cost)
+VALUES ('FK-01247', 'Motor', 200);
 
-INSERT INTO T_Part
-VALUES ('FK-01248', 'Drum');
+INSERT INTO T_Part (part_PartNo, part_description, part_cost)
+VALUES ('FK-01248', 'Drum', 100);
 
-INSERT INTO T_Part
-VALUES ('FK-01249', 'Door');
+INSERT INTO T_Part (part_PartNo, part_description, part_cost)
+VALUES ('FK-01249', 'Door', 80);
 
 -- T_Customer
 INSERT INTO T_Customer
