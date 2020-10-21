@@ -16,7 +16,7 @@ CREATE TABLE T_Part(
 	part_manufactureDate DATE DEFAULT CURRENT_TIMESTAMP,
 	
 	CONSTRAINT PK_Part PRIMARY KEY(part_PartNo),
-	CONSTRAINT CHK_part_cost CHECK (part_cost>=20 AND part_cost<=500)
+	CONSTRAINT CHK_part_cost CHECK (part_cost>=50 AND part_cost<=500)
 );
 
 CREATE TABLE T_Customer(
@@ -93,8 +93,8 @@ CREATE TABLE T_MadeBy(
     madeby_employee_ENo varchar(20) NOT NULL,
 	
     CONSTRAINT PK_MadeBy PRIMARY KEY(madeby_part_PartNo, madeby_employee_ENo),
-    CONSTRAINT FK_MadeBy_Part_PartNo FOREIGN KEY (madeby_part_PartNo) REFERENCES T_Machine(machine_MNo),
-    CONSTRAINT FK_MadeBy_Employee_ENo FOREIGN KEY (madeby_employee_ENo) REFERENCES T_Part(part_PartNo)
+    CONSTRAINT FK_MadeBy_Part_PartNo FOREIGN KEY (madeby_part_PartNo) REFERENCES T_Part(part_PartNo),
+    CONSTRAINT FK_MadeBy_Employee_ENo FOREIGN KEY (madeby_employee_ENo) REFERENCES T_Employee(employee_ENo)
 );
 
 CREATE TABLE T_Operator(
@@ -139,10 +139,10 @@ VALUES ('Moremi Cooperation');
 
 -- T_Part
 INSERT INTO T_Part (part_PartNo, part_description, part_cost)
-VALUES ('FK-01245', 'Glass Window', 20);
+VALUES ('FK-01245', 'Glass Window', 50);
 
 INSERT INTO T_Part (part_PartNo, part_description, part_cost)
-VALUES ('FK-01246', 'Electric Panel', 10);
+VALUES ('FK-01246', 'Electric Panel', 60);
 
 INSERT INTO T_Part (part_PartNo, part_description, part_cost)
 VALUES ('FK-01247', 'Motor', 200);
@@ -200,16 +200,16 @@ VALUES ('Eno-04', 'Bereka Mosadi', 'Factory Supervisor', 10000);
 
 -- T_Product
 INSERT INTO T_Product
-VALUES ('pd-01', 'Washing Machine Max-Pro', 10000, 'Moremi Cooperation');
+VALUES ('pd-01', 'Wash-Machine Max-Pro', 10000, 'Moremi Cooperation');
 
 INSERT INTO T_Product
-VALUES ('pd-02', 'Washing Machine Pro', 8000, 'Moremi Cooperation');
+VALUES ('pd-02', 'Wash-Machine Pro', 8000, 'Moremi Cooperation');
 
 INSERT INTO T_Product
-VALUES ('pd-03', 'Washing Machine Light', 5000, 'Moremi Cooperation');
+VALUES ('pd-03', 'Wash-Machine Light', 5000, 'Moremi Cooperation');
 
 INSERT INTO T_Product
-VALUES ('pd-04', 'Washing Machine Basic', 3000, 'Moremi Cooperation');
+VALUES ('pd-04', 'Wash-Machine Basic', 3000, 'Moremi Cooperation');
 
 -- T_Assembles
 INSERT INTO T_Assembles
@@ -238,16 +238,16 @@ INSERT INTO T_Orders
 VALUES ('pd-04', 'cus04');
 
 -- T_MadeOn
-INSERT INTO T_Orders
+INSERT INTO T_MadeOn
 VALUES ('mc-01', 'FK-01245');
 
-INSERT INTO T_Orders
+INSERT INTO T_MadeOn
 VALUES ('mc-02', 'FK-01246');
 
-INSERT INTO T_Orders
+INSERT INTO T_MadeOn
 VALUES ('mc-03', 'FK-01247');
 
-INSERT INTO T_Orders
+INSERT INTO T_MadeOn
 VALUES ('mc-04', 'FK-01248');
 
 -- T_Supervisor
@@ -260,7 +260,7 @@ VALUES ('FK-01245', 'Eno-03');
 
 -- T_Operator
 INSERT INTO T_Operator
-VALUES ('FK-01245', 'Eno-03', 20);
+VALUES ('mc-01', 'Eno-03', 20);
 
 -- DELETE OPERATIONS
 DROP TABLE T_MadeBy;
