@@ -21,8 +21,8 @@ CREATE TABLE T_Part(
 
 CREATE TABLE T_Customer(
     customer_CNo varchar(20) NOT NULL,
-	customer_Name varchar(20),
-	customer_surname varchar(20),
+    customer_Name varchar(20),
+    customer_surname varchar(20),
 	
     CONSTRAINT PK_Customer PRIMARY KEY(customer_CNo)
 );
@@ -199,11 +199,70 @@ INSERT INTO T_Employee
 VALUES ('Eno-04', 'Bereka Mosadi', 'Factory Supervisor', 10000);
 
 -- T_Product
+INSERT INTO T_Product
+VALUES ('pd-01', 'Washing Machine Max-Pro', 10000, 'Moremi Cooperation');
 
+INSERT INTO T_Product
+VALUES ('pd-02', 'Washing Machine Pro', 8000, 'Moremi Cooperation');
 
+INSERT INTO T_Product
+VALUES ('pd-03', 'Washing Machine Light', 5000, 'Moremi Cooperation');
 
+INSERT INTO T_Product
+VALUES ('pd-04', 'Washing Machine Basic', 3000, 'Moremi Cooperation');
 
+-- T_Assembles
+INSERT INTO T_Assembles
+VALUES ('pd-01', 'FK-01245');
 
+INSERT INTO T_Assembles
+VALUES ('pd-01', 'FK-01246');
+
+INSERT INTO T_Assembles
+VALUES ('pd-01', 'FK-01247');
+
+INSERT INTO T_Assembles
+VALUES ('pd-04', 'FK-01248');
+
+-- T_Orders
+INSERT INTO T_Orders
+VALUES ('pd-01', 'cus01');
+
+INSERT INTO T_Orders
+VALUES ('pd-02', 'cus02');
+
+INSERT INTO T_Orders
+VALUES ('pd-03', 'cus03');
+
+INSERT INTO T_Orders
+VALUES ('pd-04', 'cus04');
+
+-- T_MadeOn
+INSERT INTO T_Orders
+VALUES ('mc-01', 'FK-01245');
+
+INSERT INTO T_Orders
+VALUES ('mc-02', 'FK-01246');
+
+INSERT INTO T_Orders
+VALUES ('mc-03', 'FK-01247');
+
+INSERT INTO T_Orders
+VALUES ('mc-04', 'FK-01248');
+
+-- T_Supervisor
+INSERT INTO T_Supervisor
+VALUES ('mc-01', 'Eno-02');
+
+-- T_MadeBy
+INSERT INTO T_MadeBy
+VALUES ('FK-01245', 'Eno-03');
+
+-- T_Operator
+INSERT INTO T_Operator
+VALUES ('FK-01245', 'Eno-03', 20);
+
+-- DELETE OPERATIONS
 DROP TABLE T_MadeBy;
 -- DROP FUNCTION fn_operatorNumberOfParts;
 DROP TABLE T_Operator;
