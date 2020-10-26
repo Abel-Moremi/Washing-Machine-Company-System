@@ -11,52 +11,79 @@ import java.lang.*;
 
 /**
  *
- * @author 201503625
+ * @author Abel Moremi
  */
 public class DataConnection {
-   DataConnection(){
-    String CompanyName = "SELECT WMC_NAME FROM T_WMC";
-    Statement stmt;
-
-    try {
-       System.out.println("Using JDBC + Oracle on java");
-       Class.forName("oracle.jdbc.OracleDriver").newInstance();
-    } 
-    catch (Exception E) {
-        System.err.println("Unable to load driver.");
-        E.printStackTrace();
-    }
-
-    try {
-        Connection con = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@10.0.18.2:1521:orcl",
-                    "mor03625", 
-                    "mor03625"
-        );
-   
-        stmt = con.createStatement();       
-        ResultSet rs = stmt.executeQuery(CompanyName);
-        System.out.println("Executed " + CompanyName);
-        
-        String name = "Nothing yet";
-        while(rs.next()) {
-            name = rs.getString("WMC_NAME");
-            System.out.println(name);
+    
+    String connectURL = "jdbc:oracle:thin:@10.0.18.2:1521:orcl";
+    String connectName = "mor03625";
+    String connectPass = "mor03625";
+    
+    Statement stmt = null;
+    Connection conn = null;
+    
+    DataConnection(){
+        try {
+            System.out.println("Using JDBC + Oracle on java");
+            Class.forName("oracle.jdbc.OracleDriver").newInstance();
+        } 
+        catch (Exception E) {
+            System.err.println("Unable to load driver.");
+            E.printStackTrace();
         }
-        
-        System.out.println(name);
-        stmt.close();
-        con.close();
-        
-    }catch(SQLException ex) {
-        System.err.println("SQLException: " + ex.getMessage());
     }
- }
+    
+    public ResultSet runStatement(String statement){
+        ResultSet rs = null;
+        try {
+            conn = DriverManager.getConnection(
+                connectURL,
+                connectName, 
+                connectPass
+            );
 
- protected void finalize() throws Throwable{
- }
+            stmt = conn.createStatement();       
+            rs = stmt.executeQuery(statement);
+            System.out.println("Executed " + statement);
+            
+            //printResultSet(rs);
+            
+            // Close connection and statement
+            //close(stmt, conn);
 
- public static void main(String arguments[]){
-    DataConnection ma = new DataConnection();
- } 
+        }catch(SQLException ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
+        return rs;
+    }
+    
+    public void printResultSet(ResultSet rs){
+        String name = "";
+        try{
+           while(rs.next()){
+           name = rs.getString("WMC_NAME");
+           System.out.println(name);
+           
+           // Close connection and statement
+           //close(stmt, conn);
+        } 
+        }catch(SQLException ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
+    }
+    
+    public void close(Statement stmt, Connection conn){
+        try{
+            stmt.close();
+            conn.close();
+        }catch(SQLException ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
+    }
+
+    public static void main(String arguments[]){
+      DataConnection ma = new DataConnection();
+      ResultSet rs = ma.runStatement("SELECT WMC_NAME FROM T_WMC");
+      ma.printResultSet(rs);
+    } 
 }
