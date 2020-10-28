@@ -5,7 +5,6 @@
  */
 package backend;
 
-import java.sql.Statement;
 import java.sql.ResultSet;
 
 /**
@@ -29,9 +28,17 @@ public class WMC extends DataConnection{
         this.runStatement(deleteNameStmt);
     }
     
+    public void updateName(String oldName, String newName){
+        String updateNameStmt = "UPDATE T_WMC "
+                + "SET wmc_name = '"+newName+"'"
+                + "WHERE wmc_name='"+oldName+"'";
+        
+        this.runStatement(updateNameStmt);
+    }
+    
     public static void main(String arguments[]){
         WMC yebo = new WMC();
-        yebo.deleteName("VIBES");
+        yebo.updateName("VIBES", "Just Vibing");
         //yebo.getName();
     }
 }
