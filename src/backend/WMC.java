@@ -20,14 +20,14 @@ public class WMC extends DataConnection{
     }
     
     public void addName(String name){
-        String stmt = "INSERT INTO T_WMC (wmc_Name)\n" +
-                      "VALUES ("+name+");";
-        ResultSet rs = this.runStatement(stmt);
-        this.printResultSet(rs);
+        String addNameStmt = "INSERT INTO T_WMC (wmc_name) VALUES('"+name+"')";
+        System.out.println(addNameStmt);
+        this.runStatement(addNameStmt);
     }
     
-    public static void main(String args){
+    public static void main(String arguments[]){
         WMC yebo = new WMC();
-        yebo.getName();
+        yebo.addName("Clap your hands up");
+        //yebo.getName();
     }
 }

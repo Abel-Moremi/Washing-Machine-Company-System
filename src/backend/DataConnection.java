@@ -81,9 +81,9 @@ public class DataConnection {
         }
     }
 
-    public static void main(String arguments[]){
+    /*public static void main(String arguments[]){
       DataConnection ma = new DataConnection();
       ResultSet rs = ma.runStatement("SELECT WMC_NAME FROM T_WMC");
       ma.printResultSet(rs);
-    } 
+    }*/
 }
