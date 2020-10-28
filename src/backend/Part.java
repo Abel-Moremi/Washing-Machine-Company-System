@@ -5,10 +5,23 @@
  */
 package backend;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author Abel Moremi
  */
-public class Part {
+public class Part extends DataConnection{
+    
+    public ResultSet getParts(){
+        String stmt = "SELECT * FROM T_PART";
+        ResultSet rs = this.runStatement(stmt);
+        return rs;
+    }
+     
+    public static void main(String arguments[]){
+       Part pt = new Part();
+       pt.printResultSet(pt.getParts());
+    }
     
 }

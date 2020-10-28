@@ -7,8 +7,6 @@
 package backend;
 
 import java.sql.*;
-import java.lang.*;
-
 /**
  *
  * @author Abel Moremi
@@ -58,15 +56,15 @@ public class DataConnection {
     }
     
     public void printResultSet(ResultSet rs){
-        String name = "";
         try{
            while(rs.next()){
-           name = rs.getString("WMC_NAME");
-           System.out.println(name);
-           
-           // Close connection and statement
-           //close(stmt, conn);
-        } 
+            System.out.println(
+                rs.getString("part_PartNo")+" "+
+                rs.getString("part_description")+" "+
+                rs.getString("part_cost")+" "+
+                rs.getString("part_manufactureDate")     
+            );
+           } 
         }catch(SQLException ex) {
             System.err.println("SQLException: " + ex.getMessage());
         }
