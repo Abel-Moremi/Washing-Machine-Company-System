@@ -21,13 +21,17 @@ public class WMC extends DataConnection{
     
     public void addName(String name){
         String addNameStmt = "INSERT INTO T_WMC (wmc_name) VALUES('"+name+"')";
-        System.out.println(addNameStmt);
         this.runStatement(addNameStmt);
+    }
+    
+    public void deleteName(String name){
+        String deleteNameStmt = "DELETE FROM T_WMC WHERE wmc_name='"+name+"'";
+        this.runStatement(deleteNameStmt);
     }
     
     public static void main(String arguments[]){
         WMC yebo = new WMC();
-        yebo.addName("Clap your hands up");
+        yebo.deleteName("VIBES");
         //yebo.getName();
     }
 }
