@@ -18,6 +18,12 @@ public class Part extends DataConnection{
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
+
+    public ResultSet getPart(String partNo){
+        String stmt = "SELECT * FROM T_PART WHERE part_PartNo='"+partNo+"'";
+        ResultSet rs = this.runStatement(stmt);
+        return rs;
+    }
      
     public static void main(String arguments[]){
        Part pt = new Part();
