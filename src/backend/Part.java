@@ -24,6 +24,12 @@ public class Part extends DataConnection{
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
+
+    public void addPart(String partNo, String description, String cost){
+        String addPartStmt = "INSERT INTO T_Part (part_PartNo, part_description, part_cost)" 
+                + "VALUES('"+partNo+"', '"+description+"', '"+cost+"')";
+        this.runStatement(addPartStmt);
+    }
      
     public static void main(String arguments[]){
        Part pt = new Part();
