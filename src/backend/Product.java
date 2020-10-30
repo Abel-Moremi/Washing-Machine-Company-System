@@ -20,4 +20,10 @@ public class Product extends DataConnection{
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
+
+    public void addProduct(String prNo, String name, String cost){
+        String addProductStmt = "INSERT INTO T_Part (product_MNo, product_PrName, product_cost)" 
+                + "VALUES('"+prNo+"', '"+name+"', '"+cost+"')";
+        this.runStatement(addProductStmt);
+    }
 }

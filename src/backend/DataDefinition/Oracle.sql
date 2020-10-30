@@ -47,7 +47,7 @@ CREATE TABLE T_Product(
     product_MNo varchar(20) NOT NULL,
     product_PrName varchar(20),
     product_cost int,
-    product_WMC_name varchar(20),
+    product_WMC_name varchar(20) DEFAULT 'Moremi Cooperation',
 	
     CONSTRAINT PK_Product PRIMARY KEY(product_MNo),
     CONSTRAINT FK_Product_WMC_name FOREIGN KEY (product_WMC_name) REFERENCES T_WMC(wmc_Name)
