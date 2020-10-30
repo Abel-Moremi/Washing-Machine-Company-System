@@ -27,4 +27,9 @@ public class Employee extends DataConnection{
         this.runStatement(addEmployeeStmt);
     }
 
+    public void deleteEmployee(String ENo){
+        String deleteEmployeeStmt = "DELETE FROM T_Employee WHERE employee_ENo='"+ENo+"'";
+        this.runStatement(deleteEmployeeStmt);
+    }
+
 }
