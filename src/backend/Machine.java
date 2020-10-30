@@ -21,7 +21,7 @@ public class Machine extends DataConnection{
     }
 
     public void updateMachine(String MNo, String NewName){
-        String updateMachineStmt = "UPDATE T_Part "
+        String updateMachineStmt = "UPDATE T_Machine "
                 + "SET machine_name = '"+NewName+"'"
                 + "WHERE machine_MNo ='"+MNo+"'";
         
