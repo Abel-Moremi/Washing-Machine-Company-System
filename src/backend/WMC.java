@@ -12,10 +12,10 @@ import java.sql.ResultSet;
  * @author Abel Moremi
  */
 public class WMC extends DataConnection{
-    public void getName(){
+    public ResultSet getName(){
         String stmt = "SELECT WMC_NAME FROM T_WMC";
         ResultSet rs = this.runStatement(stmt);
-        this.printResultSet(rs);
+        return rs;
     }
     
     public void addName(String name){
