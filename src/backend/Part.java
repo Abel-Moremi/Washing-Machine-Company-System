@@ -30,10 +30,18 @@ public class Part extends DataConnection{
                 + "VALUES('"+partNo+"', '"+description+"', '"+cost+"')";
         this.runStatement(addPartStmt);
     }
+
+    public void updatePart(String partNo, String newDescription, String newCost){
+        String updateNameStmt = "UPDATE T_Part "
+                + "SET part_description = '"+newDescription+"', part_cost = '"+newCost+"'"
+                + "WHERE part_PartNo='"+partNo+"'";
+        
+        this.runStatement(updateNameStmt);
+    }
      
-    public static void main(String arguments[]){
+    /*public static void main(String arguments[]){
        Part pt = new Part();
        pt.printResultSet(pt.getParts());
-    }
+    }*/
     
 }
