@@ -26,4 +26,12 @@ public class Customer extends DataConnection{
                 + "VALUES('"+CNo+"', '"+name+"', '"+surname+"')";
         this.runStatement(addCustomerStmt);
     }
+
+    public void updateCustomer(String CNo, String newName, String newSurname){
+        String updateCustomerStmt = "UPDATE T_Customer "
+                + "SET customer_Name = '"+newName+"', customer_surname = '"+newSurname+"'"
+                + "WHERE customer_CNo='"+CNo+"'";
+        
+        this.runStatement(updateCustomerStmt);
+    }
 }
