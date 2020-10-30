@@ -34,4 +34,9 @@ public class Customer extends DataConnection{
         
         this.runStatement(updateCustomerStmt);
     }
+
+    public void deleteCustomer(String CNo){
+        String deleteCustomerStmt = "DELETE FROM T_Customer WHERE customer_CNo='"+CNo+"'";
+        this.runStatement(deleteCustomerStmt);
+    }
 }
