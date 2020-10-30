@@ -14,5 +14,17 @@ public class Assembles extends DataConnection{
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
+
+    public ResultSet getAssemble(String PNo){
+        String stmt = "SELECT * FROM T_Assembles WHERE assembles_product_PNo ='"+PNo+"'";
+        ResultSet rs = this.runStatement(stmt);
+        return rs;
+    }
+
+    public void addAssemble(String PNo, String PrNo){
+        String addAssembleStmt = "INSERT INTO T_Assembles (assembles_product_PNo, assembles_part_PartNo)" 
+                + "VALUES('"+PNo+"', '"+PrNo+"')";
+        this.runStatement(addAssembleStmt);
+    }
     
 }
