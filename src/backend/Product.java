@@ -14,4 +14,10 @@ public class Product extends DataConnection{
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
+
+    public ResultSet getProduct(String prNo){
+        String stmt = "SELECT * FROM T_PART WHERE product_MNo ='"+prNo+"'";
+        ResultSet rs = this.runStatement(stmt);
+        return rs;
+    }
 }
