@@ -26,5 +26,13 @@ public class Assembles extends DataConnection{
                 + "VALUES('"+PNo+"', '"+PrNo+"')";
         this.runStatement(addAssembleStmt);
     }
+
+    public void updateAsemble(String PNo, String PrNo, String newPrNo){
+        String updateAssembleStmt = "UPDATE T_Assembles "
+                + "SET assembles_part_PartNo = '"+newPrNo+"'"
+                + "WHERE assembles_product_PNo ='"+PNo+"' AND assembles_part_PartNo ='"+PrNo+"'";
+        
+        this.runStatement(updateAssembleStmt);
+    }
     
 }
