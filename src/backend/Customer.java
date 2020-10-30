@@ -14,4 +14,10 @@ public class Customer extends DataConnection{
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
+
+    public ResultSet getCustomer(String CNo){
+        String stmt = "SELECT * FROM FROM T_Customer WHERE customer_CNo='"+CNo+"'";
+        ResultSet rs = this.runStatement(stmt);
+        return rs;
+    }
 }
