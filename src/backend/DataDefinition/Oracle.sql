@@ -29,6 +29,7 @@ CREATE TABLE T_Customer(
 
 CREATE TABLE T_Machine(
     machine_MNo varchar(20) NOT NULL,
+    machine_name varchar(20),
 	
     CONSTRAINT PK_Machine PRIMARY KEY(machine_MNo)
 );
@@ -168,22 +169,22 @@ VALUES ('cus04', 'Ian', 'Seretse');
 
 -- T_Machine
 INSERT INTO T_Machine
-VALUES ('mc-01');
+VALUES ('mc-01', 'T-300');
 
 INSERT INTO T_Machine
-VALUES ('mc-02');
+VALUES ('mc-02', 'T-100');
 
 INSERT INTO T_Machine
-VALUES ('mc-03');
+VALUES ('mc-03', 'T-400');
 
 INSERT INTO T_Machine
-VALUES ('mc-04');
+VALUES ('mc-04', 'T-200');
 
 INSERT INTO T_Machine
-VALUES ('mc-05');
+VALUES ('mc-05', 'T-500');
 
 INSERT INTO T_Machine
-VALUES ('mc-06');
+VALUES ('mc-06', 'T-600');
 
 -- T_Employee
 INSERT INTO T_Employee
