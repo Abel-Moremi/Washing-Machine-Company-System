@@ -34,4 +34,9 @@ public class Product extends DataConnection{
         
         this.runStatement(updateProductStmt);
     }
+
+    public void deleteProduct(String prNo){
+        String deleteProductStmt = "DELETE FROM T_Part WHERE part_PartNo='"+prNo+"'";
+        this.runStatement(deleteProductStmt);
+    }
 }
