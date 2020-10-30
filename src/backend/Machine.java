@@ -13,4 +13,10 @@ public class Machine extends DataConnection{
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
+
+    public void addMachine(String MNo, String name){
+        String addMachineStmt = "INSERT INTO T_Machine (machine_MNo, machine_name)" 
+                + "VALUES('"+MNo+"', '"+name+"')";
+        this.runStatement(addMachineStmt);
+    }
 }
