@@ -38,6 +38,11 @@ public class Part extends DataConnection{
         
         this.runStatement(updateNameStmt);
     }
+
+    public void deletePart(String partNo){
+        String deletePartStmt = "DELETE FROM T_Part WHERE part_PartNo='"+partNo+"'";
+        this.runStatement(deletePartStmt);
+    }
      
     /*public static void main(String arguments[]){
        Part pt = new Part();
