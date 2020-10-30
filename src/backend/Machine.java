@@ -19,4 +19,12 @@ public class Machine extends DataConnection{
                 + "VALUES('"+MNo+"', '"+name+"')";
         this.runStatement(addMachineStmt);
     }
+
+    public void updateMachine(String MNo, String NewName){
+        String updateMachineStmt = "UPDATE T_Part "
+                + "SET machine_name = '"+NewName+"'"
+                + "WHERE machine_MNo ='"+MNo+"'";
+        
+        this.runStatement(updateMachineStmt);
+    }
 }
