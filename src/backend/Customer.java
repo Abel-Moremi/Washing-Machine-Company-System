@@ -20,4 +20,10 @@ public class Customer extends DataConnection{
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
+
+    public void addCustomer(String CNo, String name, String surname){
+        String addCustomerStmt = "INSERT INTO T_Part (customer_CNo, customer_Name, customer_surname)" 
+                + "VALUES('"+CNo+"', '"+name+"', '"+surname+"')";
+        this.runStatement(addCustomerStmt);
+    }
 }
