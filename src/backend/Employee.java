@@ -21,4 +21,10 @@ public class Employee extends DataConnection{
         return rs;
     }
 
+    public void addEmplyee(String ENo, String name, String designation, int salary){
+        String addEmployeeStmt = "INSERT INTO T_Employee (employee_ENo, employee_Name, employee_Designation)" 
+                + "VALUES('"+ENo+"', '"+name+"', '"+designation+"', '"+salary+"')";
+        this.runStatement(addEmployeeStmt);
+    }
+
 }
