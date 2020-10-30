@@ -27,4 +27,9 @@ public class Machine extends DataConnection{
         
         this.runStatement(updateMachineStmt);
     }
+
+    public void deleteMachine(String MNo){
+        String deleteMachineStmt = "DELETE FROM T_Machine WHERE machine_MNo ='"+MNo+"'";
+        this.runStatement(deleteMachineStmt);
+    }
 }
