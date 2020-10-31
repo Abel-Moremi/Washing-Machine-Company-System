@@ -18,7 +18,7 @@ public class MadeBy extends DataConnection{
 
     public ResultSet getMadeBy(String PrtNo, String ENo){
         String stmt = "SELECT * FROM  T_MadeBy" 
-                +"WHERE  madeby_part_PartNo='"+PrtNo+"' AND  madeby_employee_ENo='"+ENo+"'";
+                +"WHERE madeby_part_PartNo='"+PrtNo+"' AND  madeby_employee_ENo='"+ENo+"'";
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
@@ -27,5 +27,13 @@ public class MadeBy extends DataConnection{
         String addMadeByStmt = "INSERT INTO  T_MadeBy (madeby_part_PartNo, madeby_employee_ENo)" 
                 + "VALUES('"+PrtNo+"', '"+ENo+"')";
         this.runStatement(addMadeByStmt);
+    }
+
+    public void updateMadeBy(String PrNo, String ENo){
+        String updateMadeByStmt = "UPDATE T_MadeBy "
+                + "SET  madeby_employee_ENo='"+ENo+"'"
+                + "WHERE madeby_part_PartNo='"+PrNo+"' AND madeby_employee_ENo='"+ENo+"'";
+        
+        this.runStatement(updateMadeByStmt);
     }
 }
