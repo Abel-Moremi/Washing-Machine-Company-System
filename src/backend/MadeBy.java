@@ -15,4 +15,11 @@ public class MadeBy extends DataConnection{
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
+
+    public ResultSet getMadeBy(String PrtNo, String ENo){
+        String stmt = "SELECT * FROM  T_Supervisor" 
+                +"WHERE  madeby_part_PartNo='"+PrtNo+"' AND  madeby_employee_ENo='"+ENo+"'";
+        ResultSet rs = this.runStatement(stmt);
+        return rs;
+    }
 }
