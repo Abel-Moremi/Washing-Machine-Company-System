@@ -21,5 +21,13 @@ public class Operator extends DataConnection{
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
+
+    public void addOperator(String MNo, String ENo, String noOfParts){
+        String addOperatorStmt = "INSERT INTO  T_MadeBy (operator_machine_MNo,  operator_employee_ENo, operator_NoOfParts)" 
+                + "VALUES('"+MNo+"', '"+ENo+"', '"+noOfParts+"')";
+        this.runStatement(addOperatorStmt);
+    }
+
+    
     
 }
