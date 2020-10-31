@@ -35,4 +35,10 @@ public class MadeOn extends DataConnection{
         
         this.runStatement(updateMadeOnStmt);
     }
+
+    public void deleteMadeOn(String MNo, String PrNo){
+        String deleteMadeOnStmt = "DELETE FROM T_Part "
+                + "WHERE madeon_machine_MNo='"+MNo+"' AND madeon_part_PartNo='"+PrNo+"'";
+        this.runStatement(deleteMadeOnStmt);
+    }
 }
