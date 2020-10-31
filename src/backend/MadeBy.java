@@ -36,4 +36,10 @@ public class MadeBy extends DataConnection{
         
         this.runStatement(updateMadeByStmt);
     }
+
+    public void deleteMadeBy(String PrNo, String ENo){
+        String deleteMadeByStmt = "DELETE FROM T_MadeBy"
+                + "WHERE madeby_part_PartNo='"+PrNo+"' AND madeby_employee_ENo='"+ENo+"'";
+        this.runStatement(deleteMadeByStmt);
+    }
 }
