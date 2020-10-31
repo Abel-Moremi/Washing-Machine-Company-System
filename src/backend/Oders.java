@@ -27,4 +27,12 @@ public class Oders extends DataConnection{
                 + "VALUES('"+PNo+"', '"+CNo+"')";
         this.runStatement(addOrderStmt);
     }
+
+    public void updateOder(String PNo, String CNo, String newPNo){
+        String updateOderStmt = "UPDATE T_Orders "
+                + "SET orders_product_PNo='"+newPNo+"'"
+                + "WHERE orders_product_PNo='"+PNo+"' AND orders_customer_CNo='"+CNo+"'";
+        
+        this.runStatement(updateOderStmt);
+    }
 }
