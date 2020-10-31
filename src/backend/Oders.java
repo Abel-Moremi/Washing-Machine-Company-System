@@ -15,5 +15,10 @@ public class Oders extends DataConnection{
         return rs;
     }
 
-    
+    public ResultSet getOrder(String PNo, String CNo){
+        String stmt = "SELECT * FROM T_PART" 
+                +"WHERE orders_product_PNo='"+PNo+"' AND orders_customer_CNo='"+CNo+"'";
+        ResultSet rs = this.runStatement(stmt);
+        return rs;
+    }
 }
