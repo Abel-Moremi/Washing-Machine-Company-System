@@ -35,4 +35,10 @@ public class Oders extends DataConnection{
         
         this.runStatement(updateOderStmt);
     }
+
+    public void deleteOrder(String PNo, String CNo){
+        String deleteOrderStmt = "DELETE FROM T_Part "
+                + "WHERE orders_product_PNo='"+PNo+"' AND orders_customer_CNo='"+CNo+"'";
+        this.runStatement(deleteOrderStmt);
+    }
 }
