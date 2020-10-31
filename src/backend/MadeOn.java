@@ -27,4 +27,12 @@ public class MadeOn extends DataConnection{
                 + "VALUES('"+MNo+"', '"+PrNo+"')";
         this.runStatement(addMadeOnStmt);
     }
+
+    public void updateMadeOn(String MNo, String PrNo){
+        String updateMadeOnStmt = "UPDATE T_MadeOn "
+                + "SET madeon_part_PartNo='"+PrNo+"'"
+                + "WHERE madeon_machine_MNo='"+MNo+"' AND madeon_part_PartNo='"+PrNo+"'";
+        
+        this.runStatement(updateMadeOnStmt);
+    }
 }
