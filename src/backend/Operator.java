@@ -15,5 +15,11 @@ public class Operator extends DataConnection{
         return rs;
     }
 
+    public ResultSet getOperator(String MNo, String ENo){
+        String stmt = "SELECT * FROM  T_Operator" 
+                +"WHERE operator_machine_MNo='"+MNo+"' AND operator_employee_ENo='"+ENo+"'";
+        ResultSet rs = this.runStatement(stmt);
+        return rs;
+    }
     
 }
