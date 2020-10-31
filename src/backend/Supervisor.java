@@ -21,5 +21,11 @@ public class Supervisor extends DataConnection{
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
+
+    public void addSupervisor(String MNo, String ENo){
+        String addSupervisorStmt = "INSERT INTO  T_MadeOn (supervisor_machine_MNo, supervisor_employee_ENo)" 
+                + "VALUES('"+MNo+"', '"+ENo+"')";
+        this.runStatement(addSupervisorStmt);
+    }
     
 }
