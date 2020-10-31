@@ -21,4 +21,10 @@ public class MadeOn extends DataConnection{
         ResultSet rs = this.runStatement(stmt);
         return rs;
     }
+
+    public void addMadeOn(String MNo, String PrNo){
+        String addMadeOnStmt = "INSERT INTO  T_MadeOn (madeon_machine_MNo, madeon_part_PartNo)" 
+                + "VALUES('"+MNo+"', '"+PrNo+"')";
+        this.runStatement(addMadeOnStmt);
+    }
 }
