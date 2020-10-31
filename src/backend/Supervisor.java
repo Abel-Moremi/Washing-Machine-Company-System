@@ -35,5 +35,11 @@ public class Supervisor extends DataConnection{
         
         this.runStatement(updateSupervisorStmt);
     }
+
+    public void deleteSupervisor(String MNo, String ENo){
+        String deleteSupervisorStmt = "DELETE FROM T_Supervisor"
+                + "WHERE supervisor_machine_MNo='"+MNo+"' AND  supervisor_employee_ENo='"+ENo+"'";
+        this.runStatement(deleteSupervisorStmt);
+    }
     
 }
