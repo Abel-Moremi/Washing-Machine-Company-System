@@ -22,10 +22,18 @@ public class Operator extends DataConnection{
         return rs;
     }
 
-    public void addOperator(String MNo, String ENo, String noOfParts){
-        String addOperatorStmt = "INSERT INTO  T_MadeBy (operator_machine_MNo,  operator_employee_ENo, operator_NoOfParts)" 
-                + "VALUES('"+MNo+"', '"+ENo+"', '"+noOfParts+"')";
+    public void addOperator(String MNo, String ENo){
+        String addOperatorStmt = "INSERT INTO  T_Operator(operator_machine_MNo,  operator_employee_ENo, operator_NoOfParts)" 
+                + "VALUES('"+MNo+"', '"+ENo+"')";
         this.runStatement(addOperatorStmt);
+    }
+
+    public void updateOperator(String MNo, String ENo, String newENo){
+        String updateOperatorStmt = "UPDATE T_Operator "
+                + "SET  operator_employee_ENo='"+newENo+"'"
+                + "WHERE operator_machine_MNo='"+MNo+"' AND operator_employee_ENo='"+ENo+"'";
+        
+        this.runStatement(updateOperatorStmt);
     }
 
     
