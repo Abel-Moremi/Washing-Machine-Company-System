@@ -36,6 +36,10 @@ public class Operator extends DataConnection{
         this.runStatement(updateOperatorStmt);
     }
 
-    
+    public void deleteOperator(String MNo, String ENo){
+        String deleteOperatorStmt = "DELETE FROM T_Operator"
+                + "WHERE operator_machine_MNo='"+MNo+"' AND operator_employee_ENo='"+ENo+"'";
+        this.runStatement(deleteOperatorStmt);
+    }
     
 }
