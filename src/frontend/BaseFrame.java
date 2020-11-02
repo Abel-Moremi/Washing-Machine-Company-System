@@ -6,9 +6,7 @@
 
 package frontend;
 
-import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
-import java.awt.event.ActionListener;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -16,7 +14,7 @@ import javax.swing.JPanel;
  *
  * @author Abel Moremi
  */
-public class BaseFrame extends JFrame implements ActionListener {
+public class BaseFrame extends JFrame {
     
     CardLayout cardLayout;
     JPanel base;
@@ -29,19 +27,18 @@ public class BaseFrame extends JFrame implements ActionListener {
      */
     public BaseFrame() {
         
+        //initComponents();
+        
         cardLayout = new CardLayout();
         base = new JPanel(cardLayout);
+        
         main = new MainScene();
         customer = new CustomerScene();
         
         base.add(main, "main");
+        base.add(customer, "customer");
         
-        add(base);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pack();
-        setLocationByPlatform(true);
-        setVisible(true);
-        //cardLayout.show(base, "customer");
+        add(base);  
      
     }
 
@@ -54,21 +51,41 @@ public class BaseFrame extends JFrame implements ActionListener {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        customerButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        customerButton.setText("Customer");
+        customerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(customerButton)
+                .addContainerGap(318, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(customerButton)
+                .addContainerGap(266, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void customerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerButtonActionPerformed
+        // TODO add your handling code here:
+       cardLayout.show(base, "customer");
+    }//GEN-LAST:event_customerButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,10 +123,7 @@ public class BaseFrame extends JFrame implements ActionListener {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton customerButton;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

@@ -6,17 +6,22 @@
 
 package frontend;
 
+import javax.swing.JPanel;
+
 /**
  *
- * @author 201503625
+ * @author Abel Moremi
  */
-public class MainScene extends javax.swing.JPanel {
+public class MainScene extends JPanel {
+    
 
     /**
      * Creates new form MainScene
      */
+    
     public MainScene() {
-        initComponents();
+       initComponents();
+ 
     }
 
     /**
@@ -28,40 +33,19 @@ public class MainScene extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        customerButton = new javax.swing.JButton();
-
-        customerButton.setText("Customer");
-        customerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customerButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(301, Short.MAX_VALUE)
-                .addComponent(customerButton)
-                .addGap(104, 104, 104))
+            .addGap(0, 484, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(customerButton)
-                .addContainerGap(190, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void customerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerButtonActionPerformed
-        // TODO add your handling code here:
-        this.getLayout();
-    }//GEN-LAST:event_customerButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton customerButton;
     // End of variables declaration//GEN-END:variables
 }
