@@ -10,6 +10,7 @@ package frontend;
  * @author Zozo
  */
 public class CustomerScene extends javax.swing.JPanel {
+    
 
     /**
      * Creates new form CustomerScene
