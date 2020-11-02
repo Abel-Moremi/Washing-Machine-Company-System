@@ -57,6 +57,7 @@ public class MainScene extends javax.swing.JPanel {
 
     private void customerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerButtonActionPerformed
         // TODO add your handling code here:
+        this.getLayout();
     }//GEN-LAST:event_customerButtonActionPerformed
 
 

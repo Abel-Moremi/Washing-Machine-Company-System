@@ -35,9 +35,12 @@ public class BaseFrame extends JFrame implements ActionListener {
         customer = new CustomerScene();
         
         base.add(main, "main");
-        base.add(customer, "customer");
         
         add(base);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        pack();
+        setLocationByPlatform(true);
+        setVisible(true);
         //cardLayout.show(base, "customer");
      
     }
