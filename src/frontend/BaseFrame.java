@@ -38,7 +38,7 @@ public class BaseFrame extends JFrame implements ActionListener {
         base.add(customer, "customer");
         
         add(base);
-        cardLayout.show(base, "customer");
+        //cardLayout.show(base, "customer");
      
     }
 
