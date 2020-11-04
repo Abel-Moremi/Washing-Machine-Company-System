@@ -1,6 +1,8 @@
 package backend;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -9,10 +11,24 @@ import java.sql.ResultSet;
 
 public class Employee extends DataConnection{
 
-    public ResultSet getEmployees(){
+    public ArrayList<String[]> getEmployees() throws SQLException{
         String stmt = "SELECT * FROM T_Employee";
         ResultSet rs = this.runStatement(stmt);
-        return rs;
+        
+        ArrayList<String[]> employeeList = new ArrayList<>();
+        
+        while(rs.next()){
+            
+            String[] temp = new String[4];
+            temp[0] = rs.getString("employee_ENo");
+            temp[1] = rs.getString("employee_Name");
+            temp[2] = rs.getString("employee_Designation");
+            temp[3] = rs.getString("employee_Salary");
+            
+            employeeList.add(temp);
+        }
+        
+        return employeeList;
     }
 
     public ResultSet getEmployee(String ENo){
