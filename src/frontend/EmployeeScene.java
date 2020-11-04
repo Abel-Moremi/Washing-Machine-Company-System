@@ -6,17 +6,51 @@
 
 package frontend;
 
+import backend.Employee;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Abel Moremi
  */
 public class EmployeeScene extends javax.swing.JPanel {
+    
+    Employee employeeData;
 
     /**
      * Creates new form EmployeeScene
      */
     public EmployeeScene() {
         initComponents();
+        employeeData = new Employee();
+    }
+    
+    /**
+     * The methods below are user defined
+     */
+    
+    public void showEmployees() throws SQLException{
+        ArrayList<String[]> list = employeeData.getEmployees();
+        DefaultTableModel model = (DefaultTableModel) employeeDisplayTable.getModel();
+        Object[] row = new Object[4];
+            
+        for(String[] array: list){
+            row[0] = array[0];
+            row[1] = array[1];
+            row[2] = array[2];
+            row[3] = array[3];
+            model.addRow(row);
+        }
+            
+    }
+    
+    public void clearTable(){
+        DefaultTableModel model = (DefaultTableModel) employeeDisplayTable.getModel();
+        if(model.getRowCount() > 0){
+            model.setRowCount(0);
+        }
     }
 
     /**
@@ -28,8 +62,6 @@ public class EmployeeScene extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        showEmployee = new javax.swing.JScrollPane();
-        employeeDisplayList = new javax.swing.JList();
         EmployeeTab = new javax.swing.JTabbedPane();
         addEmployeeTab = new javax.swing.JPanel();
         addEmployeeName = new javax.swing.JTextField();
@@ -51,37 +83,8 @@ public class EmployeeScene extends javax.swing.JPanel {
         deleteEmployeeButton = new javax.swing.JButton();
         refreshEmployeeListButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        showEmployee1 = new javax.swing.JScrollPane();
-        employeeDisplayList1 = new javax.swing.JList();
-        EmployeeTab1 = new javax.swing.JTabbedPane();
-        addEmployeeTab1 = new javax.swing.JPanel();
-        addEmployeeName1 = new javax.swing.JTextField();
-        addEmployeeNameTitle1 = new javax.swing.JLabel();
-        addEmployeeSurname1 = new javax.swing.JTextField();
-        addEmployeeSurnameTitle1 = new javax.swing.JLabel();
-        addEmployeeButton1 = new javax.swing.JToggleButton();
-        updateEmployeeTab1 = new javax.swing.JPanel();
-        updateEmployeeCno1 = new javax.swing.JTextField();
-        updateEmployeeName1 = new javax.swing.JTextField();
-        updateEmployeeSurname1 = new javax.swing.JTextField();
-        updateEmployeeCnoTitle1 = new javax.swing.JLabel();
-        updateEmployeeNameTitle1 = new javax.swing.JLabel();
-        updateEmployeeSurnameTitle1 = new javax.swing.JLabel();
-        updateEmployeeButton1 = new javax.swing.JToggleButton();
-        deleteEmployeeTab1 = new javax.swing.JPanel();
-        deleteEmployeeCno1 = new javax.swing.JTextField();
-        deleteEmployeeCnoTitle1 = new javax.swing.JLabel();
-        deleteEmployeeButton1 = new javax.swing.JButton();
-        refreshEmployeeListButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-
-        employeeDisplayList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        showEmployee.setViewportView(employeeDisplayList);
+        employeeDisplayTableScroll = new javax.swing.JScrollPane();
+        employeeDisplayTable = new javax.swing.JTable();
 
         addEmployeeName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +251,7 @@ public class EmployeeScene extends javax.swing.JPanel {
             deleteEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(deleteEmployeeTabLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(deleteEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(deleteEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deleteEmployeeCno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteEmployeeCnoTitle))
                 .addGap(26, 26, 26)
@@ -267,229 +270,15 @@ public class EmployeeScene extends javax.swing.JPanel {
 
         jLabel1.setText("EMPLOYEE");
 
-        employeeDisplayList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        showEmployee1.setViewportView(employeeDisplayList1);
+        employeeDisplayTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        addEmployeeName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addEmployeeName1ActionPerformed(evt);
+            },
+            new String [] {
+                "Eno", "Name", "Designation", "Salary (P)"
             }
-        });
-
-        addEmployeeNameTitle1.setText("Name");
-
-        addEmployeeSurname1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addEmployeeSurname1ActionPerformed(evt);
-            }
-        });
-
-        addEmployeeSurnameTitle1.setText("Surname");
-
-        addEmployeeButton1.setText("Add");
-        addEmployeeButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addEmployeeButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout addEmployeeTab1Layout = new javax.swing.GroupLayout(addEmployeeTab1);
-        addEmployeeTab1.setLayout(addEmployeeTab1Layout);
-        addEmployeeTab1Layout.setHorizontalGroup(
-            addEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addEmployeeTab1Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addGroup(addEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addEmployeeTab1Layout.createSequentialGroup()
-                        .addComponent(addEmployeeNameTitle1)
-                        .addGap(18, 18, 18)
-                        .addComponent(addEmployeeName1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addEmployeeTab1Layout.createSequentialGroup()
-                        .addComponent(addEmployeeSurnameTitle1)
-                        .addGap(18, 18, 18)
-                        .addComponent(addEmployeeSurname1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addEmployeeTab1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(addEmployeeButton1)
-                .addGap(93, 93, 93))
-        );
-        addEmployeeTab1Layout.setVerticalGroup(
-            addEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addEmployeeTab1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(addEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addEmployeeName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addEmployeeNameTitle1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(addEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addEmployeeSurname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addEmployeeSurnameTitle1))
-                .addGap(18, 18, 18)
-                .addComponent(addEmployeeButton1)
-                .addContainerGap(83, Short.MAX_VALUE))
-        );
-
-        EmployeeTab1.addTab("Add", addEmployeeTab1);
-
-        updateEmployeeCno1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateEmployeeCno1ActionPerformed(evt);
-            }
-        });
-
-        updateEmployeeName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateEmployeeName1ActionPerformed(evt);
-            }
-        });
-
-        updateEmployeeCnoTitle1.setText("CNo");
-
-        updateEmployeeNameTitle1.setText("newName");
-
-        updateEmployeeSurnameTitle1.setText("newSurname");
-
-        updateEmployeeButton1.setText("Update");
-        updateEmployeeButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateEmployeeButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout updateEmployeeTab1Layout = new javax.swing.GroupLayout(updateEmployeeTab1);
-        updateEmployeeTab1.setLayout(updateEmployeeTab1Layout);
-        updateEmployeeTab1Layout.setHorizontalGroup(
-            updateEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updateEmployeeTab1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(updateEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(updateEmployeeCnoTitle1)
-                    .addComponent(updateEmployeeSurnameTitle1)
-                    .addComponent(updateEmployeeNameTitle1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(updateEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(updateEmployeeTab1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(updateEmployeeButton1))
-                    .addGroup(updateEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(updateEmployeeCno1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(updateEmployeeSurname1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(updateEmployeeName1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28))
-        );
-        updateEmployeeTab1Layout.setVerticalGroup(
-            updateEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(updateEmployeeTab1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(updateEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updateEmployeeCno1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateEmployeeCnoTitle1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(updateEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updateEmployeeName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateEmployeeNameTitle1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(updateEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updateEmployeeSurname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateEmployeeSurnameTitle1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(updateEmployeeButton1)
-                .addContainerGap(64, Short.MAX_VALUE))
-        );
-
-        EmployeeTab1.addTab("Update", updateEmployeeTab1);
-
-        deleteEmployeeCno1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteEmployeeCno1ActionPerformed(evt);
-            }
-        });
-
-        deleteEmployeeCnoTitle1.setText("Cno");
-
-        deleteEmployeeButton1.setText("Delete");
-        deleteEmployeeButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteEmployeeButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout deleteEmployeeTab1Layout = new javax.swing.GroupLayout(deleteEmployeeTab1);
-        deleteEmployeeTab1.setLayout(deleteEmployeeTab1Layout);
-        deleteEmployeeTab1Layout.setHorizontalGroup(
-            deleteEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deleteEmployeeTab1Layout.createSequentialGroup()
-                .addGroup(deleteEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(deleteEmployeeTab1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(deleteEmployeeCnoTitle1)
-                        .addGap(18, 18, 18)
-                        .addComponent(deleteEmployeeCno1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(deleteEmployeeTab1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(deleteEmployeeButton1)))
-                .addContainerGap(86, Short.MAX_VALUE))
-        );
-        deleteEmployeeTab1Layout.setVerticalGroup(
-            deleteEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deleteEmployeeTab1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(deleteEmployeeTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteEmployeeCno1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteEmployeeCnoTitle1))
-                .addGap(26, 26, 26)
-                .addComponent(deleteEmployeeButton1)
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
-
-        EmployeeTab1.addTab("Delete", deleteEmployeeTab1);
-
-        refreshEmployeeListButton1.setText("Refresh");
-        refreshEmployeeListButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshEmployeeListButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("EMPLOYEE");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(showEmployee1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(EmployeeTab1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(refreshEmployeeListButton1)))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(EmployeeTab1)
-                    .addComponent(showEmployee1))
-                .addGap(18, 18, 18)
-                .addComponent(refreshEmployeeListButton1)
-                .addGap(106, 106, 106))
-        );
+        ));
+        employeeDisplayTableScroll.setViewportView(employeeDisplayTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -498,45 +287,45 @@ public class EmployeeScene extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(showEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(EmployeeTab, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addComponent(refreshEmployeeListButton)))
-                .addContainerGap(23, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(refreshEmployeeListButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(employeeDisplayTableScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(EmployeeTab, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(289, 289, 289))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(EmployeeTab)
-                    .addComponent(showEmployee))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(EmployeeTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(employeeDisplayTableScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(38, 38, 38)
                 .addComponent(refreshEmployeeListButton)
-                .addGap(86, 86, 86))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(100, 100, 100))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void refreshEmployeeListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshEmployeeListButtonActionPerformed
         // TODO add your handling code here:
+       try {
+          clearTable();
+          showEmployees();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
+       
     }//GEN-LAST:event_refreshEmployeeListButtonActionPerformed
 
     private void addEmployeeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeNameActionPerformed
@@ -571,90 +360,30 @@ public class EmployeeScene extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_updateEmployeeButtonActionPerformed
 
-    private void addEmployeeName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addEmployeeName1ActionPerformed
-
-    private void addEmployeeSurname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeSurname1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addEmployeeSurname1ActionPerformed
-
-    private void addEmployeeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addEmployeeButton1ActionPerformed
-
-    private void updateEmployeeCno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEmployeeCno1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateEmployeeCno1ActionPerformed
-
-    private void updateEmployeeName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEmployeeName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateEmployeeName1ActionPerformed
-
-    private void updateEmployeeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEmployeeButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateEmployeeButton1ActionPerformed
-
-    private void deleteEmployeeCno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEmployeeCno1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteEmployeeCno1ActionPerformed
-
-    private void deleteEmployeeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEmployeeButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteEmployeeButton1ActionPerformed
-
-    private void refreshEmployeeListButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshEmployeeListButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_refreshEmployeeListButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane EmployeeTab;
-    private javax.swing.JTabbedPane EmployeeTab1;
     private javax.swing.JToggleButton addEmployeeButton;
-    private javax.swing.JToggleButton addEmployeeButton1;
     private javax.swing.JTextField addEmployeeName;
-    private javax.swing.JTextField addEmployeeName1;
     private javax.swing.JLabel addEmployeeNameTitle;
-    private javax.swing.JLabel addEmployeeNameTitle1;
     private javax.swing.JTextField addEmployeeSurname;
-    private javax.swing.JTextField addEmployeeSurname1;
     private javax.swing.JLabel addEmployeeSurnameTitle;
-    private javax.swing.JLabel addEmployeeSurnameTitle1;
     private javax.swing.JPanel addEmployeeTab;
-    private javax.swing.JPanel addEmployeeTab1;
     private javax.swing.JButton deleteEmployeeButton;
-    private javax.swing.JButton deleteEmployeeButton1;
     private javax.swing.JTextField deleteEmployeeCno;
-    private javax.swing.JTextField deleteEmployeeCno1;
     private javax.swing.JLabel deleteEmployeeCnoTitle;
-    private javax.swing.JLabel deleteEmployeeCnoTitle1;
     private javax.swing.JPanel deleteEmployeeTab;
-    private javax.swing.JPanel deleteEmployeeTab1;
-    private javax.swing.JList employeeDisplayList;
-    private javax.swing.JList employeeDisplayList1;
+    private javax.swing.JTable employeeDisplayTable;
+    private javax.swing.JScrollPane employeeDisplayTableScroll;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton refreshEmployeeListButton;
-    private javax.swing.JButton refreshEmployeeListButton1;
-    private javax.swing.JScrollPane showEmployee;
-    private javax.swing.JScrollPane showEmployee1;
     private javax.swing.JToggleButton updateEmployeeButton;
-    private javax.swing.JToggleButton updateEmployeeButton1;
     private javax.swing.JTextField updateEmployeeCno;
-    private javax.swing.JTextField updateEmployeeCno1;
     private javax.swing.JLabel updateEmployeeCnoTitle;
-    private javax.swing.JLabel updateEmployeeCnoTitle1;
     private javax.swing.JTextField updateEmployeeName;
-    private javax.swing.JTextField updateEmployeeName1;
     private javax.swing.JLabel updateEmployeeNameTitle;
-    private javax.swing.JLabel updateEmployeeNameTitle1;
     private javax.swing.JTextField updateEmployeeSurname;
-    private javax.swing.JTextField updateEmployeeSurname1;
     private javax.swing.JLabel updateEmployeeSurnameTitle;
-    private javax.swing.JLabel updateEmployeeSurnameTitle1;
     private javax.swing.JPanel updateEmployeeTab;
-    private javax.swing.JPanel updateEmployeeTab1;
     // End of variables declaration//GEN-END:variables
 }
