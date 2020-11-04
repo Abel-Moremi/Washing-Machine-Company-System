@@ -31,10 +31,24 @@ public class Employee extends DataConnection{
         return employeeList;
     }
 
-    public ResultSet getEmployee(String ENo){
+    public  ArrayList<String[]> getEmployee(String ENo) throws SQLException{
         String stmt = "SELECT * FROM T_Employee WHERE employee_ENo='"+ENo+"'";
         ResultSet rs = this.runStatement(stmt);
-        return rs;
+        
+        ArrayList<String[]> employeeList = new ArrayList<>();
+        
+        while(rs.next()){
+            
+            String[] temp = new String[4];
+            temp[0] = rs.getString("employee_ENo");
+            temp[1] = rs.getString("employee_Name");
+            temp[2] = rs.getString("employee_Designation");
+            temp[3] = rs.getString("employee_Salary");
+            
+            employeeList.add(temp);
+        }
+        
+        return employeeList;
     }
 
     public void addEmplyee(String ENo, String name, String designation, int salary){
