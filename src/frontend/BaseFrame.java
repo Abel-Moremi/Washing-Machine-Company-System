@@ -25,6 +25,7 @@ public class BaseFrame extends JFrame implements ActionListener{
     JPanel base;
     CustomerScene customer;
     MainScene main;
+    EmployeeScene employee;
     
 
     /**
@@ -39,16 +40,18 @@ public class BaseFrame extends JFrame implements ActionListener{
         
         main = new MainScene();
         customer = new CustomerScene();
+        employee = new EmployeeScene();
         
         base.add(main, "main");
         base.add(customer, "customer");
+        base.add(employee, "employee");
         
         
         
         
         JButton customerButton = new JButton();
         customerButton.setText("Customer");
-        customerButton.addActionListener(new java.awt.event.ActionListener() {
+        customerButton.addActionListener(new ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 customerButtonActionPerformed(evt);
             }
@@ -56,16 +59,16 @@ public class BaseFrame extends JFrame implements ActionListener{
         
         JButton homeButton = new JButton();
         homeButton.setText("Home");
-        homeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        homeButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 homeButtonActionPerformed(evt);
             }
         });
         
         JButton employeeButton = new JButton();
         employeeButton.setText("Employee");
-        employeeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        employeeButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 employeeButtonActionPerformed(evt);
             }
         });
@@ -163,6 +166,7 @@ public class BaseFrame extends JFrame implements ActionListener{
 
     private void employeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeButtonActionPerformed
         // TODO add your handling code here:
+        cardLayout.show(base, "employee");
     }//GEN-LAST:event_employeeButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed

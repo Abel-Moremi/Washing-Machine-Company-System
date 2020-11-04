@@ -38,7 +38,8 @@ public class WMC extends DataConnection{
     
     /*public static void main(String arguments[]){
         WMC yebo = new WMC();
-        yebo.updateName("VIBES", "Just Vibing");
+        //yebo.updateName("VIBES", "Just Vibing");
+        yebo.addName("Vibes");
         //yebo.getName();
     }*/
 }
