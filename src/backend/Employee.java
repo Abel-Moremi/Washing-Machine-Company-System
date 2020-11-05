@@ -1,6 +1,7 @@
 package backend;
 
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -49,6 +50,30 @@ public class Employee extends DataConnection{
         }
         
         return employeeList;
+    }
+    
+    public int getlastEno() throws SQLException{
+        int lastDigits = 00;
+        String eno = "Cno-100";
+        String last3Char = "100";
+        
+        String addEmployeeStmt = "SELECT LAST_VALUE(employee_ENo) over(order by employee_ENo ASC) "
+                + "FROM T_Employee";
+        
+        ResultSet rs = this.runStatement(addEmployeeStmt);
+        
+        while(rs.next()){
+            ResultSetMetaData rsmd = rs.getMetaData();
+            String name = rsmd.getColumnName(1);
+            System.out.println(rsmd.getColumnName(1));
+            eno = rs.getString("ORDERBYEMPLOYEE_ENOASC");
+        }
+       
+        last3Char = eno.substring(Math.max(eno.length() - 3, 0)) + 1;
+        
+        lastDigits = Integer.parseInt(last3Char);
+        
+        return lastDigits;
     }
 
     public void addEmplyee(String ENo, String name, String designation, int salary){
