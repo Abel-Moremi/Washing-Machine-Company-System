@@ -57,16 +57,16 @@ public class Employee extends DataConnection{
         String eno = "Cno-100";
         String last3Char = "100";
         
-        String addEmployeeStmt = "SELECT LAST_VALUE(employee_ENo) over(order by employee_ENo ASC) "
-                + "FROM T_Employee";
+        String addEmployeeStmt = "SELECT employee_ENo "
+                + "FROM T_Employee "
+                + "WHERE employee_ENo = (SELECT MAX(employee_Eno) FROM T_Employee)";
         
         ResultSet rs = this.runStatement(addEmployeeStmt);
         
         while(rs.next()){
             ResultSetMetaData rsmd = rs.getMetaData();
-            String name = rsmd.getColumnName(1);
             System.out.println(rsmd.getColumnName(1));
-            eno = rs.getString("ORDERBYEMPLOYEE_ENOASC");
+            eno = rs.getString("employee_ENo");
         }
        
         last3Char = eno.substring(Math.max(eno.length() - 3, 0)) + 1;
