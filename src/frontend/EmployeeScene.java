@@ -105,6 +105,18 @@ public class EmployeeScene extends javax.swing.JPanel {
         updateEmployeeDesignation.setText(" ");
         updateEmployeeSalary.setText(" ");
     }
+     
+    public void deleteEmployee() throws SQLException{
+        String eno = deleteEmployeeCno.getText();
+        
+        employeeData.deleteEmployee(eno);
+        showEmployees();
+        clearDeleteEmployeeField();
+    }
+    
+     public void clearDeleteEmployeeField(){
+        deleteEmployeeCno.setText(" ");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -213,7 +225,7 @@ public class EmployeeScene extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(addEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addEmployeeSalaryTitle)
-                    .addComponent(addEmployeeSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addEmployeeSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(addEmployeeButton)
                 .addContainerGap(330, Short.MAX_VALUE))
@@ -297,7 +309,7 @@ public class EmployeeScene extends javax.swing.JPanel {
                     .addComponent(updateEmployeeSalaryTitle))
                 .addGap(18, 18, 18)
                 .addComponent(updateEmployeeButton)
-                .addContainerGap(338, Short.MAX_VALUE))
+                .addContainerGap(342, Short.MAX_VALUE))
         );
 
         EmployeeTab.addTab("Update", updateEmployeeTab);
@@ -329,7 +341,7 @@ public class EmployeeScene extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(deleteEmployeeCno, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(deleteEmployeeTabLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addGap(85, 85, 85)
                         .addComponent(deleteEmployeeButton)))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
@@ -340,9 +352,9 @@ public class EmployeeScene extends javax.swing.JPanel {
                 .addGroup(deleteEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deleteEmployeeCno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteEmployeeCnoTitle))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(deleteEmployeeButton)
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addContainerGap(438, Short.MAX_VALUE))
         );
 
         EmployeeTab.addTab("Delete", deleteEmployeeTab);
@@ -436,6 +448,11 @@ public class EmployeeScene extends javax.swing.JPanel {
 
     private void deleteEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEmployeeButtonActionPerformed
         // TODO add your handling code here:
+         try {
+          deleteEmployee();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
     }//GEN-LAST:event_deleteEmployeeButtonActionPerformed
 
     private void updateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEmployeeButtonActionPerformed
