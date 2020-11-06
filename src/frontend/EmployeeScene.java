@@ -29,7 +29,7 @@ public class EmployeeScene extends javax.swing.JPanel {
     
     /**
      * The methods below are user defined
-     * @throws java.sql.SQLException
+     * 
      */
     
     public void showEmployees() throws SQLException{

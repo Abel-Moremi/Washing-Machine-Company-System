@@ -5,11 +5,18 @@
  */
 package frontend;
 
+import backend.Customer;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Zozo
  */
 public class CustomerScene extends javax.swing.JPanel {
+    
+    Customer customerData;
     
 
     /**
@@ -17,6 +24,34 @@ public class CustomerScene extends javax.swing.JPanel {
      */
     public CustomerScene() {
         initComponents();
+        customerData = new Customer();
+    }
+    
+     /**
+     * The methods below are user defined
+     * 
+     */
+    
+    public void showCustomers() throws SQLException{
+        clearTable();
+        ArrayList<String[]> list = customerData.getCustomers();
+        DefaultTableModel model = (DefaultTableModel) showCustomerTable.getModel();
+        Object[] row = new Object[3];
+            
+        for(String[] array: list){
+            row[0] = array[0];
+            row[1] = array[1];
+            row[2] = array[2];
+            model.addRow(row);
+        }
+            
+    }
+    
+     public void clearTable(){
+        DefaultTableModel model = (DefaultTableModel) showCustomerTable.getModel();
+        if(model.getRowCount() > 0){
+            model.setRowCount(0);
+        }
     }
 
     /**
@@ -33,8 +68,6 @@ public class CustomerScene extends javax.swing.JPanel {
         showCustomerTable = new javax.swing.JTable();
         customerTabbedPane = new javax.swing.JTabbedPane();
         addCustomerTab = new javax.swing.JPanel();
-        addCustomerCnoText = new javax.swing.JTextField();
-        addCustomerCnoTitle = new javax.swing.JLabel();
         addCustomerButton = new javax.swing.JButton();
         addCustomerNameText = new javax.swing.JTextField();
         addCustomerSurnameText = new javax.swing.JTextField();
@@ -66,14 +99,6 @@ public class CustomerScene extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(showCustomerTable);
 
-        addCustomerCnoText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addCustomerCnoTextActionPerformed(evt);
-            }
-        });
-
-        addCustomerCnoTitle.setText("Cno");
-
         addCustomerButton.setText("Add");
         addCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,18 +129,12 @@ public class CustomerScene extends javax.swing.JPanel {
             .addGroup(addCustomerTabLayout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
                 .addGroup(addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(addCustomerTabLayout.createSequentialGroup()
-                        .addComponent(addCustomerCnoTitle)
-                        .addGap(18, 18, 18)
-                        .addComponent(addCustomerCnoText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(addCustomerTabLayout.createSequentialGroup()
-                        .addGroup(addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(addCustomerSurnameTitle)
-                            .addComponent(addCustomerNameTitle))
-                        .addGap(18, 18, 18)
-                        .addGroup(addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(addCustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addCustomerSurnameText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(addCustomerSurnameTitle)
+                    .addComponent(addCustomerNameTitle))
+                .addGap(18, 18, 18)
+                .addGroup(addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(addCustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addCustomerSurnameText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(153, 153, 153))
             .addGroup(addCustomerTabLayout.createSequentialGroup()
                 .addGap(125, 125, 125)
@@ -125,11 +144,7 @@ public class CustomerScene extends javax.swing.JPanel {
         addCustomerTabLayout.setVerticalGroup(
             addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addCustomerTabLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addCustomerCnoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addCustomerCnoTitle))
-                .addGap(18, 18, 18)
+                .addGap(64, 64, 64)
                 .addGroup(addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addCustomerNameTitle)
                     .addComponent(addCustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -269,6 +284,11 @@ public class CustomerScene extends javax.swing.JPanel {
         customerTabbedPane.addTab("Delete", deleteCustomerTab);
 
         showCustomerButoon.setText("Refresh");
+        showCustomerButoon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showCustomerButoonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -303,14 +323,10 @@ public class CustomerScene extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addCustomerCnoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerCnoTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addCustomerCnoTextActionPerformed
-
     private void addCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerButtonActionPerformed
         // TODO add your handling code here:
         try {
-            deleteEmployee();
+            //deleteEmployee();
         } catch (Exception ex) {
             System.err.println("SQLException: " + ex.getMessage());
         }
@@ -323,7 +339,7 @@ public class CustomerScene extends javax.swing.JPanel {
     private void updateCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCustomerButtonActionPerformed
         // TODO add your handling code here:
         try {
-            deleteEmployee();
+            //deleteEmployee();
         } catch (Exception ex) {
             System.err.println("SQLException: " + ex.getMessage());
         }
@@ -336,7 +352,7 @@ public class CustomerScene extends javax.swing.JPanel {
     private void deleteCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomerButtonActionPerformed
         // TODO add your handling code here:
         try {
-            deleteEmployee();
+            //deleteEmployee();
         } catch (Exception ex) {
             System.err.println("SQLException: " + ex.getMessage());
         }
@@ -358,11 +374,18 @@ public class CustomerScene extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_updateCustomerSurnameTextActionPerformed
 
+    private void showCustomerButoonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCustomerButoonActionPerformed
+        // TODO add your handling code here:
+        try {
+            showCustomers();
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_showCustomerButoonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addCustomerButton;
-    private javax.swing.JTextField addCustomerCnoText;
-    private javax.swing.JLabel addCustomerCnoTitle;
     private javax.swing.JTextField addCustomerNameText;
     private javax.swing.JLabel addCustomerNameTitle;
     private javax.swing.JTextField addCustomerSurnameText;
