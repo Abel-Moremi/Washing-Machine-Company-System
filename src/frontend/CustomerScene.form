@@ -48,7 +48,7 @@
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="showCustomerButoon" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="435" max="32767" attributes="0"/>
+              <EmptySpace pref="431" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -152,7 +152,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="addCustomerButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="102" max="32767" attributes="0"/>
+                      <EmptySpace pref="106" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -203,29 +203,25 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="updateCustomerCnoTiltle" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="updateCusomerCnoText" min="-2" pref="118" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="updateCustomernameTitle" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="updateCustomerNameText" min="-2" pref="118" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="updateCustomerSurnameTitle" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="updateCustomerSurnameText" min="-2" pref="118" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="updateCustomerSurnameTitle" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateCustomernameTitle" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateCustomerCnoTiltle" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="updateCustomerCnoText" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <Component id="updateCustomerNameText" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <Component id="updateCustomerSurnameText" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                               <Component id="updateCustomerButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="177" max="32767" attributes="0"/>
+                      <EmptySpace pref="158" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -234,13 +230,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="updateCusomerCnoText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="updateCustomerCnoText" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="updateCustomerCnoTiltle" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="updateCustomerNameText" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="updateCustomernameTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="updateCustomerNameText" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -255,9 +251,9 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="updateCusomerCnoText">
+            <Component class="javax.swing.JTextField" name="updateCustomerCnoText">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateCusomerCnoTextActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateCustomerCnoTextActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="updateCustomerCnoTiltle">
@@ -275,12 +271,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="updateCustomernameTitle">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Name"/>
+                <Property name="text" type="java.lang.String" value="NewName"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="updateCustomerSurnameTitle">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Surname"/>
+                <Property name="text" type="java.lang.String" value="NewSurname"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="updateCustomerNameText">
@@ -334,7 +330,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="deleteCustomerButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="172" max="32767" attributes="0"/>
+                      <EmptySpace pref="176" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

@@ -83,6 +83,23 @@ public class CustomerScene extends javax.swing.JPanel {
         addCustomerNameText.setText(" ");
         addCustomerSurnameText.setText(" ");
     }
+    
+     
+    public void updateCustomer() throws SQLException{
+        String cno = updateCustomerCnoText.getText();
+        String cName = updateCustomerNameText.getText();
+        String cSurname = updateCustomerSurnameText.getText();
+        
+        customerData.updateCustomer(cno, cName, cSurname);
+        showCustomer(cno);
+        clearUpdateCustomerFields();
+    }
+    
+    public void clearUpdateCustomerFields(){
+        updateCustomerCnoText.setText(" ");
+        updateCustomerNameText.setText(" ");
+        updateCustomerSurnameText.setText(" ");
+    }
      
      
 
@@ -106,7 +123,7 @@ public class CustomerScene extends javax.swing.JPanel {
         addCustomerNameTitle = new javax.swing.JLabel();
         addCustomerSurnameTitle = new javax.swing.JLabel();
         updateCustomerTab = new javax.swing.JPanel();
-        updateCusomerCnoText = new javax.swing.JTextField();
+        updateCustomerCnoText = new javax.swing.JTextField();
         updateCustomerCnoTiltle = new javax.swing.JLabel();
         updateCustomerButton = new javax.swing.JButton();
         updateCustomernameTitle = new javax.swing.JLabel();
@@ -186,14 +203,14 @@ public class CustomerScene extends javax.swing.JPanel {
                     .addComponent(addCustomerSurnameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(addCustomerButton)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         customerTabbedPane.addTab("Add", addCustomerTab);
 
-        updateCusomerCnoText.addActionListener(new java.awt.event.ActionListener() {
+        updateCustomerCnoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateCusomerCnoTextActionPerformed(evt);
+                updateCustomerCnoTextActionPerformed(evt);
             }
         });
 
@@ -206,9 +223,9 @@ public class CustomerScene extends javax.swing.JPanel {
             }
         });
 
-        updateCustomernameTitle.setText("Name");
+        updateCustomernameTitle.setText("NewName");
 
-        updateCustomerSurnameTitle.setText("Surname");
+        updateCustomerSurnameTitle.setText("NewSurname");
 
         updateCustomerNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,36 +246,32 @@ public class CustomerScene extends javax.swing.JPanel {
             .addGroup(updateCustomerTabLayout.createSequentialGroup()
                 .addGroup(updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(updateCustomerTabLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(updateCustomerCnoTiltle)
-                        .addGap(18, 18, 18)
-                        .addComponent(updateCusomerCnoText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(updateCustomerTabLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(updateCustomernameTitle)
-                        .addGap(18, 18, 18)
-                        .addComponent(updateCustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(updateCustomerTabLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(updateCustomerSurnameTitle)
-                        .addGap(18, 18, 18)
-                        .addComponent(updateCustomerSurnameText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(updateCustomerSurnameTitle)
+                            .addComponent(updateCustomernameTitle)
+                            .addComponent(updateCustomerCnoTiltle))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(updateCustomerCnoText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateCustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateCustomerSurnameText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(updateCustomerTabLayout.createSequentialGroup()
-                        .addGap(101, 101, 101)
+                        .addGap(116, 116, 116)
                         .addComponent(updateCustomerButton)))
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         updateCustomerTabLayout.setVerticalGroup(
             updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(updateCustomerTabLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updateCusomerCnoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateCustomerCnoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updateCustomerCnoTiltle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addGroup(updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updateCustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateCustomernameTitle))
+                    .addComponent(updateCustomernameTitle)
+                    .addComponent(updateCustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateCustomerSurnameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,7 +323,7 @@ public class CustomerScene extends javax.swing.JPanel {
                     .addComponent(deleteCustomerCnoTitle))
                 .addGap(18, 18, 18)
                 .addComponent(deleteCustomerButton)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         customerTabbedPane.addTab("Delete", deleteCustomerTab);
@@ -351,7 +364,7 @@ public class CustomerScene extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addComponent(showCustomerButoon)
-                .addContainerGap(435, Short.MAX_VALUE))
+                .addContainerGap(431, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -364,14 +377,14 @@ public class CustomerScene extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_addCustomerButtonActionPerformed
 
-    private void updateCusomerCnoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCusomerCnoTextActionPerformed
+    private void updateCustomerCnoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCustomerCnoTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_updateCusomerCnoTextActionPerformed
+    }//GEN-LAST:event_updateCustomerCnoTextActionPerformed
 
     private void updateCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCustomerButtonActionPerformed
         // TODO add your handling code here:
         try {
-            //deleteEmployee();
+            updateCustomer();
         } catch (Exception ex) {
             System.err.println("SQLException: " + ex.getMessage());
         }
@@ -432,8 +445,8 @@ public class CustomerScene extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton showCustomerButoon;
     private javax.swing.JTable showCustomerTable;
-    private javax.swing.JTextField updateCusomerCnoText;
     private javax.swing.JButton updateCustomerButton;
+    private javax.swing.JTextField updateCustomerCnoText;
     private javax.swing.JLabel updateCustomerCnoTiltle;
     private javax.swing.JTextField updateCustomerNameText;
     private javax.swing.JTextField updateCustomerSurnameText;
