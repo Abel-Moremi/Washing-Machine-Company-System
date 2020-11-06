@@ -1,6 +1,8 @@
 package backend;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -9,18 +11,42 @@ import java.sql.ResultSet;
 
 public class Customer extends DataConnection{
 
-    public ResultSet getCustomers(){
+    public ArrayList<String[]> getCustomers() throws SQLException{
         String stmt = "SELECT * FROM T_Customer";
         ResultSet rs = this.runStatement(stmt);
         
+        ArrayList<String[]> customerList = new ArrayList<>();
         
-        return rs;
+        while(rs.next()){
+            
+            String[] temp = new String[3];
+            temp[0] = rs.getString("customer_CNo");
+            temp[1] = rs.getString("customer_Name");
+            temp[2] = rs.getString("customer_surname");
+            
+            customerList.add(temp);
+        }
+        
+        return customerList;
     }
 
-    public ResultSet getCustomer(String CNo){
+    public ArrayList<String[]> getCustomer(String CNo) throws SQLException{
         String stmt = "SELECT * FROM FROM T_Customer WHERE customer_CNo='"+CNo+"'";
         ResultSet rs = this.runStatement(stmt);
-        return rs;
+        
+        ArrayList<String[]> customerList = new ArrayList<>();
+        
+        while(rs.next()){
+            
+            String[] temp = new String[3];
+            temp[0] = rs.getString("customer_CNo");
+            temp[1] = rs.getString("customer_Name");
+            temp[2] = rs.getString("customer_surname");
+            
+            customerList.add(temp);
+        }
+        
+        return customerList;
     }
 
     public void addCustomer(String CNo, String name, String surname){

@@ -28,220 +28,362 @@ public class CustomerScene extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        customerList = new javax.swing.JList<String>();
-        addName = new javax.swing.JTextField();
-        addSurname = new javax.swing.JTextField();
-        addCustomer = new javax.swing.JButton();
-        updateID = new javax.swing.JTextField();
-        updateName = new javax.swing.JTextField();
-        updateSurname = new javax.swing.JTextField();
-        updateCustomer = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        deleteID = new javax.swing.JTextField();
-        deleteCustomer = new javax.swing.JButton();
-        CustomerBack = new javax.swing.JButton();
+        customerTitle = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        showCustomerTable = new javax.swing.JTable();
+        customerTabbedPane = new javax.swing.JTabbedPane();
+        addCustomerTab = new javax.swing.JPanel();
+        addCustomerCnoText = new javax.swing.JTextField();
+        addCustomerCnoTitle = new javax.swing.JLabel();
+        addCustomerButton = new javax.swing.JButton();
+        addCustomerNameText = new javax.swing.JTextField();
+        addCustomerSurnameText = new javax.swing.JTextField();
+        addCustomerNameTitle = new javax.swing.JLabel();
+        addCustomerSurnameTitle = new javax.swing.JLabel();
+        updateCustomerTab = new javax.swing.JPanel();
+        updateCusomerCnoText = new javax.swing.JTextField();
+        updateCustomerCnoTiltle = new javax.swing.JLabel();
+        updateCustomerButton = new javax.swing.JButton();
+        updateCustomernameTitle = new javax.swing.JLabel();
+        updateCustomerSurnameTitle = new javax.swing.JLabel();
+        updateCustomerNameText = new javax.swing.JTextField();
+        updateCustomerSurnameText = new javax.swing.JTextField();
+        deleteCustomerTab = new javax.swing.JPanel();
+        deleteCustomerCnoText = new javax.swing.JTextField();
+        deleteCustomerCnoTitle = new javax.swing.JLabel();
+        deleteCustomerButton = new javax.swing.JButton();
+        showCustomerButoon = new javax.swing.JButton();
 
-        customerList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(customerList);
+        customerTitle.setText("Customer");
 
-        addName.setText("Customer Name");
-        addName.addActionListener(new java.awt.event.ActionListener() {
+        showCustomerTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "CNo", "CName", "CSurname"
+            }
+        ));
+        jScrollPane2.setViewportView(showCustomerTable);
+
+        addCustomerCnoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addNameActionPerformed(evt);
+                addCustomerCnoTextActionPerformed(evt);
             }
         });
 
-        addSurname.setText("Customer Surname");
-        addSurname.addActionListener(new java.awt.event.ActionListener() {
+        addCustomerCnoTitle.setText("Cno");
+
+        addCustomerButton.setText("Add");
+        addCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addSurnameActionPerformed(evt);
+                addCustomerButtonActionPerformed(evt);
             }
         });
 
-        addCustomer.setText("ADD");
-        addCustomer.addActionListener(new java.awt.event.ActionListener() {
+        addCustomerNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addCustomerActionPerformed(evt);
+                addCustomerNameTextActionPerformed(evt);
             }
         });
 
-        updateID.setText("ID");
-        updateID.addActionListener(new java.awt.event.ActionListener() {
+        addCustomerSurnameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateIDActionPerformed(evt);
+                addCustomerSurnameTextActionPerformed(evt);
             }
         });
 
-        updateName.setText("Customer Name");
-        updateName.addActionListener(new java.awt.event.ActionListener() {
+        addCustomerNameTitle.setText("Name");
+
+        addCustomerSurnameTitle.setText("Surname");
+
+        javax.swing.GroupLayout addCustomerTabLayout = new javax.swing.GroupLayout(addCustomerTab);
+        addCustomerTab.setLayout(addCustomerTabLayout);
+        addCustomerTabLayout.setHorizontalGroup(
+            addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addCustomerTabLayout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addGroup(addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(addCustomerTabLayout.createSequentialGroup()
+                        .addComponent(addCustomerCnoTitle)
+                        .addGap(18, 18, 18)
+                        .addComponent(addCustomerCnoText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addCustomerTabLayout.createSequentialGroup()
+                        .addGroup(addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(addCustomerSurnameTitle)
+                            .addComponent(addCustomerNameTitle))
+                        .addGap(18, 18, 18)
+                        .addGroup(addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(addCustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addCustomerSurnameText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(153, 153, 153))
+            .addGroup(addCustomerTabLayout.createSequentialGroup()
+                .addGap(125, 125, 125)
+                .addComponent(addCustomerButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        addCustomerTabLayout.setVerticalGroup(
+            addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addCustomerTabLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addCustomerCnoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addCustomerCnoTitle))
+                .addGap(18, 18, 18)
+                .addGroup(addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addCustomerNameTitle)
+                    .addComponent(addCustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(addCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addCustomerSurnameTitle)
+                    .addComponent(addCustomerSurnameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(addCustomerButton)
+                .addContainerGap(102, Short.MAX_VALUE))
+        );
+
+        customerTabbedPane.addTab("Add", addCustomerTab);
+
+        updateCusomerCnoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateNameActionPerformed(evt);
+                updateCusomerCnoTextActionPerformed(evt);
             }
         });
 
-        updateSurname.setText("Customer Surname");
-        updateSurname.addActionListener(new java.awt.event.ActionListener() {
+        updateCustomerCnoTiltle.setText("Cno");
+
+        updateCustomerButton.setText("Update");
+        updateCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateSurnameActionPerformed(evt);
+                updateCustomerButtonActionPerformed(evt);
             }
         });
 
-        updateCustomer.setText("Update");
-        updateCustomer.addActionListener(new java.awt.event.ActionListener() {
+        updateCustomernameTitle.setText("Name");
+
+        updateCustomerSurnameTitle.setText("Surname");
+
+        updateCustomerNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateCustomerActionPerformed(evt);
+                updateCustomerNameTextActionPerformed(evt);
             }
         });
 
-        deleteID.setText("ID");
-        deleteID.addActionListener(new java.awt.event.ActionListener() {
+        updateCustomerSurnameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteIDActionPerformed(evt);
+                updateCustomerSurnameTextActionPerformed(evt);
             }
         });
 
-        deleteCustomer.setText("Delete");
-        deleteCustomer.addActionListener(new java.awt.event.ActionListener() {
+        javax.swing.GroupLayout updateCustomerTabLayout = new javax.swing.GroupLayout(updateCustomerTab);
+        updateCustomerTab.setLayout(updateCustomerTabLayout);
+        updateCustomerTabLayout.setHorizontalGroup(
+            updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updateCustomerTabLayout.createSequentialGroup()
+                .addGroup(updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(updateCustomerTabLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(updateCustomerCnoTiltle)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateCusomerCnoText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(updateCustomerTabLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(updateCustomernameTitle)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateCustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(updateCustomerTabLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(updateCustomerSurnameTitle)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateCustomerSurnameText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(updateCustomerTabLayout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(updateCustomerButton)))
+                .addContainerGap(177, Short.MAX_VALUE))
+        );
+        updateCustomerTabLayout.setVerticalGroup(
+            updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updateCustomerTabLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateCusomerCnoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateCustomerCnoTiltle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateCustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateCustomernameTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(updateCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateCustomerSurnameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateCustomerSurnameTitle))
+                .addGap(18, 18, 18)
+                .addComponent(updateCustomerButton)
+                .addContainerGap(116, Short.MAX_VALUE))
+        );
+
+        customerTabbedPane.addTab("Update", updateCustomerTab);
+
+        deleteCustomerCnoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteCustomerActionPerformed(evt);
+                deleteCustomerCnoTextActionPerformed(evt);
             }
         });
 
-        CustomerBack.setText("Back");
+        deleteCustomerCnoTitle.setText("Cno");
+
+        deleteCustomerButton.setText("Delete");
+        deleteCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteCustomerButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout deleteCustomerTabLayout = new javax.swing.GroupLayout(deleteCustomerTab);
+        deleteCustomerTab.setLayout(deleteCustomerTabLayout);
+        deleteCustomerTabLayout.setHorizontalGroup(
+            deleteCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deleteCustomerTabLayout.createSequentialGroup()
+                .addGroup(deleteCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(deleteCustomerTabLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(deleteCustomerCnoTitle)
+                        .addGap(29, 29, 29)
+                        .addComponent(deleteCustomerCnoText, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(deleteCustomerTabLayout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(deleteCustomerButton)))
+                .addContainerGap(174, Short.MAX_VALUE))
+        );
+        deleteCustomerTabLayout.setVerticalGroup(
+            deleteCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deleteCustomerTabLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(deleteCustomerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteCustomerCnoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteCustomerCnoTitle))
+                .addGap(18, 18, 18)
+                .addComponent(deleteCustomerButton)
+                .addContainerGap(172, Short.MAX_VALUE))
+        );
+
+        customerTabbedPane.addTab("Delete", deleteCustomerTab);
+
+        showCustomerButoon.setText("Refresh");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(CustomerBack)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(customerTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(customerTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSeparator1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(28, 28, 28)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(addCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(1, 1, 1))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(updateID, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(updateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(updateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(addName, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(addSurname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(updateName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(deleteID, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(deleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addGap(0, 28, Short.MAX_VALUE))
-                            .addComponent(jSeparator2)))))
+                        .addGap(221, 221, 221)
+                        .addComponent(showCustomerButoon)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(CustomerBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(addName, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(7, 7, 7)
-                        .addComponent(addCustomer)
-                        .addGap(26, 26, 26)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(updateID, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(updateName, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(updateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(updateCustomer)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteID, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(deleteCustomer)))
-                .addGap(382, 382, 382))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(customerTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(customerTabbedPane)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(showCustomerButoon)
+                .addContainerGap(435, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNameActionPerformed
+    private void addCustomerCnoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerCnoTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addNameActionPerformed
+    }//GEN-LAST:event_addCustomerCnoTextActionPerformed
 
-    private void addSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSurnameActionPerformed
+    private void addCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addSurnameActionPerformed
+        try {
+            deleteEmployee();
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_addCustomerButtonActionPerformed
 
-    private void addCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerActionPerformed
+    private void updateCusomerCnoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCusomerCnoTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addCustomerActionPerformed
+    }//GEN-LAST:event_updateCusomerCnoTextActionPerformed
 
-    private void updateIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateIDActionPerformed
+    private void updateCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCustomerButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_updateIDActionPerformed
+        try {
+            deleteEmployee();
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_updateCustomerButtonActionPerformed
 
-    private void updateNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateNameActionPerformed
+    private void deleteCustomerCnoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomerCnoTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_updateNameActionPerformed
+    }//GEN-LAST:event_deleteCustomerCnoTextActionPerformed
 
-    private void updateSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateSurnameActionPerformed
+    private void deleteCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomerButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_updateSurnameActionPerformed
+        try {
+            deleteEmployee();
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_deleteCustomerButtonActionPerformed
 
-    private void updateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCustomerActionPerformed
+    private void addCustomerNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerNameTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_updateCustomerActionPerformed
+    }//GEN-LAST:event_addCustomerNameTextActionPerformed
 
-    private void deleteIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteIDActionPerformed
+    private void addCustomerSurnameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerSurnameTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteIDActionPerformed
+    }//GEN-LAST:event_addCustomerSurnameTextActionPerformed
 
-    private void deleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomerActionPerformed
+    private void updateCustomerNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCustomerNameTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteCustomerActionPerformed
+    }//GEN-LAST:event_updateCustomerNameTextActionPerformed
+
+    private void updateCustomerSurnameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCustomerSurnameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateCustomerSurnameTextActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CustomerBack;
-    private javax.swing.JButton addCustomer;
-    private javax.swing.JTextField addName;
-    private javax.swing.JTextField addSurname;
-    private javax.swing.JList<String> customerList;
-    private javax.swing.JButton deleteCustomer;
-    private javax.swing.JTextField deleteID;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JButton updateCustomer;
-    private javax.swing.JTextField updateID;
-    private javax.swing.JTextField updateName;
-    private javax.swing.JTextField updateSurname;
+    private javax.swing.JButton addCustomerButton;
+    private javax.swing.JTextField addCustomerCnoText;
+    private javax.swing.JLabel addCustomerCnoTitle;
+    private javax.swing.JTextField addCustomerNameText;
+    private javax.swing.JLabel addCustomerNameTitle;
+    private javax.swing.JTextField addCustomerSurnameText;
+    private javax.swing.JLabel addCustomerSurnameTitle;
+    private javax.swing.JPanel addCustomerTab;
+    private javax.swing.JTabbedPane customerTabbedPane;
+    private javax.swing.JLabel customerTitle;
+    private javax.swing.JButton deleteCustomerButton;
+    private javax.swing.JTextField deleteCustomerCnoText;
+    private javax.swing.JLabel deleteCustomerCnoTitle;
+    private javax.swing.JPanel deleteCustomerTab;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton showCustomerButoon;
+    private javax.swing.JTable showCustomerTable;
+    private javax.swing.JTextField updateCusomerCnoText;
+    private javax.swing.JButton updateCustomerButton;
+    private javax.swing.JLabel updateCustomerCnoTiltle;
+    private javax.swing.JTextField updateCustomerNameText;
+    private javax.swing.JTextField updateCustomerSurnameText;
+    private javax.swing.JLabel updateCustomerSurnameTitle;
+    private javax.swing.JPanel updateCustomerTab;
+    private javax.swing.JLabel updateCustomernameTitle;
     // End of variables declaration//GEN-END:variables
 }
