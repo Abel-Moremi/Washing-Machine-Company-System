@@ -1,6 +1,8 @@
 package backend;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -9,17 +11,39 @@ import java.sql.ResultSet;
 
 public class MadeOn extends DataConnection{
 
-    public ResultSet getMadeOns(){
+    public ArrayList<String[]> getMadeOns() throws SQLException{
         String stmt = "SELECT * FROM T_MadeOn";
         ResultSet rs = this.runStatement(stmt);
-        return rs;
+        ArrayList<String[]> list = new ArrayList<>();
+        
+        while(rs.next()){
+            
+            String[] temp = new String[2];
+            temp[0] = rs.getString("madeon_machine_MNo");
+            temp[1] = rs.getString("madeon_part_PartNo");
+            
+            list.add(temp);
+        }
+        
+        return list;
     }
 
-    public ResultSet getMadeOn(String MNo, String PrNo){
+    public ArrayList<String[]> getMadeOn(String MNo, String PrNo) throws SQLException{
         String stmt = "SELECT * FROM  T_MadeOn" 
                 +"WHERE madeon_machine_MNo='"+MNo+"' AND madeon_part_PartNo='"+PrNo+"'";
         ResultSet rs = this.runStatement(stmt);
-        return rs;
+         ArrayList<String[]> list = new ArrayList<>();
+        
+        while(rs.next()){
+            
+            String[] temp = new String[2];
+            temp[0] = rs.getString("madeon_machine_MNo");
+            temp[1] = rs.getString("madeon_part_PartNo");
+            
+            list.add(temp);
+        }
+        
+        return list;
     }
 
     public void addMadeOn(String MNo, String PrNo){

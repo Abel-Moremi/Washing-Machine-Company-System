@@ -1,6 +1,8 @@
 package backend;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -10,17 +12,39 @@ import java.sql.ResultSet;
 
 public class MadeBy extends DataConnection{
     
-    public ResultSet getMadeBys(){
+    public  ArrayList<String[]> getMadeBys() throws SQLException{
         String stmt = "SELECT * FROM T_MadeBy";
         ResultSet rs = this.runStatement(stmt);
-        return rs;
+        ArrayList<String[]> list = new ArrayList<>();
+        
+        while(rs.next()){
+            
+            String[] temp = new String[2];
+            temp[0] = rs.getString("madeby_part_PartNo");
+            temp[1] = rs.getString("madeby_employee_ENo");
+            
+            list.add(temp);
+        }
+        
+        return list;
     }
 
-    public ResultSet getMadeBy(String PrtNo, String ENo){
+    public ArrayList<String[]> getMadeBy(String PrtNo, String ENo)throws SQLException{
         String stmt = "SELECT * FROM  T_MadeBy" 
                 +"WHERE madeby_part_PartNo='"+PrtNo+"' AND  madeby_employee_ENo='"+ENo+"'";
         ResultSet rs = this.runStatement(stmt);
-        return rs;
+        ArrayList<String[]> list = new ArrayList<>();
+        
+        while(rs.next()){
+            
+            String[] temp = new String[2];
+            temp[0] = rs.getString("madeby_part_PartNo");
+            temp[1] = rs.getString("madeby_employee_ENo");
+            
+            list.add(temp);
+        }
+        
+        return list;
     }
 
     public void addMadeBy(String PrtNo, String ENo){

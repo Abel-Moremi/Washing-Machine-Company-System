@@ -6,17 +6,111 @@
 
 package frontend;
 
+import backend.Part;
+import backend.MadeOn;
+import backend.MadeBy;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author 201503625
  */
 public class ProductScene extends javax.swing.JPanel {
+    
+    Part partData;
+    MadeOn madeOnData;
+    MadeBy madeByData;
 
     /**
      * Creates new form Product
      */
     public ProductScene() {
         initComponents();
+        
+        partData = new Part();
+        madeOnData = new MadeOn();
+        madeByData = new MadeBy();
+    }
+    
+    /**
+     * Part User Defined functions
+     */
+    
+    public ArrayList<String[]> mergeParts() throws SQLException{
+        ArrayList<String[]> partList = partData.getParts();
+        ArrayList<String[]> madeOnList = madeOnData.getMadeOns(); 
+        ArrayList<String[]> madeByList = madeByData.getMadeBys();
+        
+        ArrayList<String[]> mergeList = new ArrayList<String[]>();
+        ArrayList<String[]> megaList = new ArrayList<String[]>();
+        
+        for(String[] partArr: partList){
+            for(String[] madeOnArr: madeOnList){
+                if(partArr[0].equals(madeOnArr[0])){
+                    mergeList.add(addArr4(partArr, madeOnArr));
+                }
+            }
+        }
+        
+        for(String[] partArr: mergeList){
+            for(String[] madeByArr: madeByList){
+                if(partArr[0].equals(madeByArr[0])){
+                    megaList.add(addArr5(partArr, madeByArr));
+                }
+            }
+        }
+        
+        return megaList;
+    }
+    
+    public String[] addArr4(String[] Arr1, String[] Arr2){
+        String[] newArr = new String[5];
+        newArr[0] = Arr1[0];
+        newArr[1] = Arr1[1];
+        newArr[2] = Arr1[2];
+        newArr[3] = Arr1[3];
+        newArr[4] = Arr2[1];
+        
+        return newArr;
+    }
+    
+    public String[] addArr5(String[] Arr1, String[] Arr2){
+        String[] newArr = new String[6];
+        newArr[0] = Arr1[0];
+        newArr[1] = Arr1[1];
+        newArr[2] = Arr1[2];
+        newArr[3] = Arr1[3];
+        newArr[4] = Arr2[4];
+        newArr[5] = Arr2[1];
+        
+        return newArr;
+    }
+    
+    public void showParts() throws SQLException{
+        clearTable();
+        ArrayList<String[]> list = mergeParts();
+        DefaultTableModel model = (DefaultTableModel) showPartTable.getModel();
+        Object[] row = new Object[6];
+            
+        for(String[] array: list){
+            row[0] = array[0];
+            row[1] = array[1];
+            row[2] = array[2];
+            row[3] = array[3];
+            row[4] = array[4];
+            row[5] = array[5];
+            model.addRow(row);
+        }
+            
+    }
+    
+    public void clearTable(){
+        DefaultTableModel model = (DefaultTableModel) showPartTable.getModel();
+        if(model.getRowCount() > 0){
+            model.setRowCount(0);
+        }
     }
 
     /**
@@ -113,12 +207,17 @@ public class ProductScene extends javax.swing.JPanel {
 
             },
             new String [] {
-                "PartNo", "Description", "Cost", "Machine", "Employee"
+                "PartNo", "Description", "Cost", "Machine", "Employee", "Date"
             }
         ));
         partScrollPane.setViewportView(showPartTable);
 
         partRefreshButton.setText("Refresh");
+        partRefreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partRefreshButtonActionPerformed(evt);
+            }
+        });
 
         addPartDescriptionText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -650,7 +749,7 @@ public class ProductScene extends javax.swing.JPanel {
                 .addGap(80, 80, 80)
                 .addComponent(deleteProductAssemblePrNoTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(deleteProductAssemblePrNoText, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                .addComponent(deleteProductAssemblePrNoText, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                 .addGap(105, 105, 105))
             .addGroup(deleteProductAssemblePaneLayout.createSequentialGroup()
                 .addGap(130, 130, 130)
@@ -763,6 +862,15 @@ public class ProductScene extends javax.swing.JPanel {
     private void deletePartNoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePartNoTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deletePartNoTextActionPerformed
+
+    private void partRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partRefreshButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+            showParts();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }     
+    }//GEN-LAST:event_partRefreshButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
