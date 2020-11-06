@@ -124,7 +124,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="addEmployeeButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="278" max="32767" attributes="0"/>
+                      <EmptySpace pref="330" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -183,25 +183,34 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="updateEmployeeCnoTitle" min="-2" max="-2" attributes="0"/>
-                          <Component id="updateEmployeeSurnameTitle" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="updateEmployeeNameTitle" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Component id="updateEmployeeButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="updateEmployeeDesignationTitle" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateEmployeeNameTitle" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateEmployeeSalaryTitle" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="updateEmployeeCno" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
-                              <Component id="updateEmployeeSurname" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
-                              <Component id="updateEmployeeName" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="updateEmployeeCnoTitle" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="updateEmployeeCno" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
+                          <Component id="updateEmployeeDesignation" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
+                          <Component id="updateEmployeeName" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
+                          <Component id="updateEmployeeSalary" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="updateEmployeeButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -220,12 +229,17 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="updateEmployeeSurname" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="updateEmployeeSurnameTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="updateEmployeeDesignation" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="updateEmployeeDesignationTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="updateEmployeeSalary" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="updateEmployeeSalaryTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="updateEmployeeButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="322" max="32767" attributes="0"/>
+                      <EmptySpace pref="338" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -241,7 +255,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateEmployeeNameActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="updateEmployeeSurname">
+            <Component class="javax.swing.JTextField" name="updateEmployeeDesignation">
             </Component>
             <Component class="javax.swing.JLabel" name="updateEmployeeCnoTitle">
               <Properties>
@@ -253,9 +267,9 @@
                 <Property name="text" type="java.lang.String" value="newName"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="updateEmployeeSurnameTitle">
+            <Component class="javax.swing.JLabel" name="updateEmployeeDesignationTitle">
               <Properties>
-                <Property name="text" type="java.lang.String" value="newSurname"/>
+                <Property name="text" type="java.lang.String" value="newDesignation"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JToggleButton" name="updateEmployeeButton">
@@ -265,6 +279,13 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateEmployeeButtonActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="updateEmployeeSalaryTitle">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="newSalary"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="updateEmployeeSalary">
             </Component>
           </SubComponents>
         </Container>
@@ -307,7 +328,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="deleteEmployeeButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="368" max="32767" attributes="0"/>
+                      <EmptySpace pref="420" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

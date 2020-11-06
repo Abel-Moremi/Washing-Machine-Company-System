@@ -81,6 +81,14 @@ public class Employee extends DataConnection{
                 + "VALUES('"+ENo+"', '"+name+"', '"+designation+"', '"+salary+"')";
         this.runStatement(addEmployeeStmt);
     }
+    
+     public void updateEmployee(String ENo, String newName, String newDesignation, int newSalary){
+        String updateEmployeeStmt = "UPDATE T_Employee "
+                + "SET employee_Name = '"+newName+"', employee_Designation = '"+newDesignation+"', employee_Salary = '"+newSalary+"'"
+                + "WHERE employee_ENo ='"+ENo+"'";
+        
+        this.runStatement(updateEmployeeStmt);
+    }
 
     public void deleteEmployee(String ENo){
         String deleteEmployeeStmt = "DELETE FROM T_Employee WHERE employee_ENo='"+ENo+"'";

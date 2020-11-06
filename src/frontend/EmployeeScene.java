@@ -33,6 +33,7 @@ public class EmployeeScene extends javax.swing.JPanel {
      */
     
     public void showEmployees() throws SQLException{
+        clearTable();
         ArrayList<String[]> list = employeeData.getEmployees();
         DefaultTableModel model = (DefaultTableModel) employeeDisplayTable.getModel();
         Object[] row = new Object[4];
@@ -48,6 +49,7 @@ public class EmployeeScene extends javax.swing.JPanel {
     }
     
      public void showEmployee(String eno) throws SQLException{
+        clearTable();
         ArrayList<String[]> list = employeeData.getEmployee(eno);
         DefaultTableModel model = (DefaultTableModel) employeeDisplayTable.getModel();
         Object[] row = new Object[4];
@@ -85,6 +87,24 @@ public class EmployeeScene extends javax.swing.JPanel {
         addEmployeeDesignation.setText(" ");
         addEmployeeSalary.setText(" ");
     }
+    
+    public void updateEmployee() throws SQLException{
+        String eno = updateEmployeeCno.getText();
+        String eName = updateEmployeeName.getText();
+        String eDesignation = updateEmployeeDesignation.getText();
+        int eSalary = Integer.parseInt(updateEmployeeSalary.getText());
+        
+        employeeData.updateEmployee(eno, eName, eDesignation, eSalary);
+        showEmployee(eno);
+        clearUpdateEmployeeFields();
+    }
+    
+     public void clearUpdateEmployeeFields(){
+        updateEmployeeCno.setText(" ");
+        updateEmployeeName.setText(" ");
+        updateEmployeeDesignation.setText(" ");
+        updateEmployeeSalary.setText(" ");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -107,11 +127,13 @@ public class EmployeeScene extends javax.swing.JPanel {
         updateEmployeeTab = new javax.swing.JPanel();
         updateEmployeeCno = new javax.swing.JTextField();
         updateEmployeeName = new javax.swing.JTextField();
-        updateEmployeeSurname = new javax.swing.JTextField();
+        updateEmployeeDesignation = new javax.swing.JTextField();
         updateEmployeeCnoTitle = new javax.swing.JLabel();
         updateEmployeeNameTitle = new javax.swing.JLabel();
-        updateEmployeeSurnameTitle = new javax.swing.JLabel();
+        updateEmployeeDesignationTitle = new javax.swing.JLabel();
         updateEmployeeButton = new javax.swing.JToggleButton();
+        updateEmployeeSalaryTitle = new javax.swing.JLabel();
+        updateEmployeeSalary = new javax.swing.JTextField();
         deleteEmployeeTab = new javax.swing.JPanel();
         deleteEmployeeCno = new javax.swing.JTextField();
         deleteEmployeeCnoTitle = new javax.swing.JLabel();
@@ -194,7 +216,7 @@ public class EmployeeScene extends javax.swing.JPanel {
                     .addComponent(addEmployeeSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(addEmployeeButton)
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addContainerGap(330, Short.MAX_VALUE))
         );
 
         EmployeeTab.addTab("Add", addEmployeeTab);
@@ -215,7 +237,7 @@ public class EmployeeScene extends javax.swing.JPanel {
 
         updateEmployeeNameTitle.setText("newName");
 
-        updateEmployeeSurnameTitle.setText("newSurname");
+        updateEmployeeDesignationTitle.setText("newDesignation");
 
         updateEmployeeButton.setText("Update");
         updateEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -224,26 +246,35 @@ public class EmployeeScene extends javax.swing.JPanel {
             }
         });
 
+        updateEmployeeSalaryTitle.setText("newSalary");
+
         javax.swing.GroupLayout updateEmployeeTabLayout = new javax.swing.GroupLayout(updateEmployeeTab);
         updateEmployeeTab.setLayout(updateEmployeeTabLayout);
         updateEmployeeTabLayout.setHorizontalGroup(
             updateEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updateEmployeeTabLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(updateEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(updateEmployeeCnoTitle)
-                    .addComponent(updateEmployeeSurnameTitle)
-                    .addComponent(updateEmployeeNameTitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(updateEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(updateEmployeeTabLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(updateEmployeeButton))
-                    .addGroup(updateEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(updateEmployeeCno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(updateEmployeeSurname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(updateEmployeeName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addGroup(updateEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(updateEmployeeDesignationTitle)
+                            .addComponent(updateEmployeeNameTitle, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(updateEmployeeSalaryTitle, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updateEmployeeTabLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(updateEmployeeCnoTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(updateEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(updateEmployeeCno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateEmployeeDesignation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateEmployeeName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateEmployeeSalary, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updateEmployeeTabLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(updateEmployeeButton)
+                .addGap(63, 63, 63))
         );
         updateEmployeeTabLayout.setVerticalGroup(
             updateEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,11 +289,15 @@ public class EmployeeScene extends javax.swing.JPanel {
                     .addComponent(updateEmployeeNameTitle))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(updateEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updateEmployeeSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateEmployeeSurnameTitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(updateEmployeeDesignation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateEmployeeDesignationTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(updateEmployeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateEmployeeSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateEmployeeSalaryTitle))
+                .addGap(18, 18, 18)
                 .addComponent(updateEmployeeButton)
-                .addContainerGap(322, Short.MAX_VALUE))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
 
         EmployeeTab.addTab("Update", updateEmployeeTab);
@@ -307,7 +342,7 @@ public class EmployeeScene extends javax.swing.JPanel {
                     .addComponent(deleteEmployeeCnoTitle))
                 .addGap(26, 26, 26)
                 .addComponent(deleteEmployeeButton)
-                .addContainerGap(368, Short.MAX_VALUE))
+                .addContainerGap(420, Short.MAX_VALUE))
         );
 
         EmployeeTab.addTab("Delete", deleteEmployeeTab);
@@ -371,7 +406,6 @@ public class EmployeeScene extends javax.swing.JPanel {
     private void refreshEmployeeListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshEmployeeListButtonActionPerformed
         // TODO add your handling code here:
        try {
-          clearTable();
           showEmployees();  
         } catch (Exception ex) {
             System.err.println("SQLException: " + ex.getMessage());
@@ -382,7 +416,6 @@ public class EmployeeScene extends javax.swing.JPanel {
     private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButtonActionPerformed
         // TODO add your handling code here:
          try {
-          clearTable();
           addEmployee();  
         } catch (Exception ex) {
             System.err.println("SQLException: " + ex.getMessage());
@@ -407,6 +440,11 @@ public class EmployeeScene extends javax.swing.JPanel {
 
     private void updateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEmployeeButtonActionPerformed
         // TODO add your handling code here:
+        try {
+            updateEmployee();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
     }//GEN-LAST:event_updateEmployeeButtonActionPerformed
 
     private void addEmployeeDesignationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeDesignationActionPerformed
@@ -443,10 +481,12 @@ public class EmployeeScene extends javax.swing.JPanel {
     private javax.swing.JToggleButton updateEmployeeButton;
     private javax.swing.JTextField updateEmployeeCno;
     private javax.swing.JLabel updateEmployeeCnoTitle;
+    private javax.swing.JTextField updateEmployeeDesignation;
+    private javax.swing.JLabel updateEmployeeDesignationTitle;
     private javax.swing.JTextField updateEmployeeName;
     private javax.swing.JLabel updateEmployeeNameTitle;
-    private javax.swing.JTextField updateEmployeeSurname;
-    private javax.swing.JLabel updateEmployeeSurnameTitle;
+    private javax.swing.JTextField updateEmployeeSalary;
+    private javax.swing.JLabel updateEmployeeSalaryTitle;
     private javax.swing.JPanel updateEmployeeTab;
     // End of variables declaration//GEN-END:variables
 }
