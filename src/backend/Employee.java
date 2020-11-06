@@ -69,15 +69,15 @@ public class Employee extends DataConnection{
             eno = rs.getString("employee_ENo");
         }
        
-        last3Char = eno.substring(Math.max(eno.length() - 3, 0)) + 1;
+        last3Char = eno.substring(Math.max(eno.length() - 3, 0));
         
-        lastDigits = Integer.parseInt(last3Char);
+        lastDigits = Integer.parseInt(last3Char) + 1;
         
         return lastDigits;
     }
 
     public void addEmplyee(String ENo, String name, String designation, int salary){
-        String addEmployeeStmt = "INSERT INTO T_Employee (employee_ENo, employee_Name, employee_Designation)" 
+        String addEmployeeStmt = "INSERT INTO T_Employee (employee_ENo, employee_Name, employee_Designation, employee_Salary)" 
                 + "VALUES('"+ENo+"', '"+name+"', '"+designation+"', '"+salary+"')";
         this.runStatement(addEmployeeStmt);
     }
