@@ -100,6 +100,18 @@ public class CustomerScene extends javax.swing.JPanel {
         updateCustomerNameText.setText(" ");
         updateCustomerSurnameText.setText(" ");
     }
+    
+    public void deleteCustomer() throws SQLException{
+        String cno = deleteCustomerCnoText.getText();
+        
+        customerData.deleteCustomer(cno);
+        showCustomers();
+        clearDeleteCustomerField();
+    }
+    
+     public void clearDeleteCustomerField(){
+        deleteCustomerCnoText.setText(" ");
+    }
      
      
 
@@ -397,7 +409,7 @@ public class CustomerScene extends javax.swing.JPanel {
     private void deleteCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomerButtonActionPerformed
         // TODO add your handling code here:
         try {
-            //deleteEmployee();
+            deleteCustomer();
         } catch (Exception ex) {
             System.err.println("SQLException: " + ex.getMessage());
         }
