@@ -47,6 +47,21 @@ public class CustomerScene extends javax.swing.JPanel {
             
     }
     
+    public void showCustomer(String cno) throws SQLException{
+        clearTable();
+        ArrayList<String[]> list = customerData.getCustomer(cno);
+        DefaultTableModel model = (DefaultTableModel) showCustomerTable.getModel();
+        Object[] row = new Object[3];
+            
+        for(String[] array: list){
+            row[0] = array[0];
+            row[1] = array[1];
+            row[2] = array[2];
+            model.addRow(row);
+        }
+            
+    }
+    
      public void clearTable(){
         DefaultTableModel model = (DefaultTableModel) showCustomerTable.getModel();
         if(model.getRowCount() > 0){
