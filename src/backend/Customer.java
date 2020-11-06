@@ -1,6 +1,7 @@
 package backend;
 
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -31,7 +32,7 @@ public class Customer extends DataConnection{
     }
 
     public ArrayList<String[]> getCustomer(String CNo) throws SQLException{
-        String stmt = "SELECT * FROM FROM T_Customer WHERE customer_CNo='"+CNo+"'";
+        String stmt = "SELECT * FROM T_Customer WHERE customer_CNo='"+CNo+"'";
         ResultSet rs = this.runStatement(stmt);
         
         ArrayList<String[]> customerList = new ArrayList<>();
@@ -47,6 +48,29 @@ public class Customer extends DataConnection{
         }
         
         return customerList;
+    }
+    
+     public int getlastCno() throws SQLException{
+        int lastDigits = 00;
+        String eno = "cus100";
+        String last3Char = "100";
+        
+        String getMaxCnoStmt = "SELECT customer_CNo "
+                + "FROM T_Customer "
+                + "WHERE customer_CNo = (SELECT MAX(customer_CNo) FROM T_Customer)";
+        
+        ResultSet rs = this.runStatement(getMaxCnoStmt);
+        
+        while(rs.next()){
+
+            eno = rs.getString("customer_CNo");
+        }
+       
+        last3Char = eno.substring(Math.max(eno.length() - 3, 0));
+        
+        lastDigits = Integer.parseInt(last3Char) + 1;
+        
+        return lastDigits;
     }
 
     public void addCustomer(String CNo, String name, String surname){

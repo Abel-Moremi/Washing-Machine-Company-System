@@ -68,6 +68,23 @@ public class CustomerScene extends javax.swing.JPanel {
             model.setRowCount(0);
         }
     }
+     
+    public void addCustomer() throws SQLException{
+        String cno ="cus" + customerData.getlastCno();
+        String cName = addCustomerNameText.getText();
+        String cSurname = addCustomerSurnameText.getText();
+        
+        customerData.addCustomer(cno, cName, cSurname);
+        showCustomer(cno);
+        clearAddCustomerFields();
+    }
+    
+    public void clearAddCustomerFields(){
+        addCustomerNameText.setText(" ");
+        addCustomerSurnameText.setText(" ");
+    }
+     
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -341,7 +358,7 @@ public class CustomerScene extends javax.swing.JPanel {
     private void addCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerButtonActionPerformed
         // TODO add your handling code here:
         try {
-            //deleteEmployee();
+            addCustomer();
         } catch (Exception ex) {
             System.err.println("SQLException: " + ex.getMessage());
         }
