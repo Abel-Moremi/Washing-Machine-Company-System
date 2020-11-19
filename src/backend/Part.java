@@ -63,6 +63,37 @@ public class Part extends DataConnection{
         
         return partList;
     }
+    
+     public ArrayList<String[]> getAllPart(String partNo) throws SQLException{
+        String stmt = "SELECT T_Part.part_partno,"
+                + "T_Part.part_description,"
+                + "T_Part.part_cost,"
+                + "T_MadeOn.madeon_machine_MNo,"
+                + "T_MadeBy.madeby_employee_ENo,"
+                + "T_Part.part_manufactureDate "
+                + "FROM T_PART "
+                + "LEFT JOIN T_MadeOn ON T_part.part_partno = T_MadeOn.madeon_part_PartNo "
+                + "LEFT JOIN T_MadeBy ON T_part.part_partno = T_MadeBy.madeby_part_PartNo"
+                + "WHERE part_PartNo='"+partNo+"'";
+        
+        ResultSet rs = this.runStatement(stmt);
+        ArrayList<String[]> partList = new ArrayList<>();
+        
+        while(rs.next()){
+            
+            String[] temp = new String[6];
+            temp[0] = rs.getString("part_PartNo");
+            temp[1] = rs.getString("part_description");
+            temp[2] = rs.getString("part_cost");
+            temp[3] = rs.getString("madeon_machine_MNo");
+            temp[4] = rs.getString("madeby_employee_ENo");
+            temp[5] = rs.getString("part_manufactureDate");
+            
+            partList.add(temp);
+        }
+        
+        return partList;
+    }
 
     public ArrayList<String[]> getPart(String partNo) throws SQLException{
         String stmt = "SELECT * FROM T_PART WHERE part_PartNo='"+partNo+"'";
