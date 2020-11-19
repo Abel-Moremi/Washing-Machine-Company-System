@@ -15,6 +15,9 @@ import java.util.ArrayList;
  */
 public class Part extends DataConnection{
     
+    MadeBy madeByData;
+    MadeOn madeOnData;
+    
     public ArrayList<String[]> getParts() throws SQLException{
         String stmt = "SELECT * FROM T_PART";
         ResultSet rs = this.runStatement(stmt);
@@ -93,6 +96,17 @@ public class Part extends DataConnection{
         }
         
         return partList;
+    }
+     
+     public void addAllPart(String partNo, String description, String cost,String mno, String eno){
+        madeOnData = new MadeOn();
+        madeByData = new MadeBy();
+        
+        madeOnData.addMadeOn(mno, partNo);
+        madeByData.addMadeBy(partNo, eno);
+        
+        this.addPart(partNo, description, cost);
+        
     }
 
     public ArrayList<String[]> getPart(String partNo) throws SQLException{
