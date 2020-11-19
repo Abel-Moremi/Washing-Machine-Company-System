@@ -28,19 +28,379 @@ public class MachineScene extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        MachineTab = new javax.swing.JTabbedPane();
+        addMachineTab = new javax.swing.JPanel();
+        addMachineButton = new javax.swing.JToggleButton();
+        addMachineOperator = new javax.swing.JTextField();
+        addMachineSupervisor = new javax.swing.JTextField();
+        addMachineOperatorTitle = new javax.swing.JLabel();
+        addMachineSupervisorTitle = new javax.swing.JLabel();
+        addMachineName = new javax.swing.JTextField();
+        addMachineNameTitle = new javax.swing.JLabel();
+        updateMachineTab = new javax.swing.JPanel();
+        updateMachineNo = new javax.swing.JTextField();
+        updateMachineName = new javax.swing.JTextField();
+        updateMachineOperator = new javax.swing.JTextField();
+        updateMachineNoTitle = new javax.swing.JLabel();
+        updateMachineNameTitle = new javax.swing.JLabel();
+        updateMachineOperatorTitle = new javax.swing.JLabel();
+        updateMachineButton = new javax.swing.JToggleButton();
+        updateMachineSupervisorTitle = new javax.swing.JLabel();
+        updateMachineSupervisor = new javax.swing.JTextField();
+        deleteMachineTab = new javax.swing.JPanel();
+        deleteMachineNo = new javax.swing.JTextField();
+        deleteMachineNoTitle = new javax.swing.JLabel();
+        deleteMachineButton = new javax.swing.JButton();
+        refreshMachineListButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        machineDisplayTableScroll = new javax.swing.JScrollPane();
+        machineDisplayTable = new javax.swing.JTable();
+
+        addMachineButton.setText("Add");
+        addMachineButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMachineButtonActionPerformed(evt);
+            }
+        });
+
+        addMachineOperator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMachineOperatorActionPerformed(evt);
+            }
+        });
+
+        addMachineSupervisor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMachineSupervisorActionPerformed(evt);
+            }
+        });
+
+        addMachineOperatorTitle.setText("Operator");
+
+        addMachineSupervisorTitle.setText("Supervisor");
+
+        addMachineName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMachineNameActionPerformed(evt);
+            }
+        });
+
+        addMachineNameTitle.setText("Name");
+
+        javax.swing.GroupLayout addMachineTabLayout = new javax.swing.GroupLayout(addMachineTab);
+        addMachineTab.setLayout(addMachineTabLayout);
+        addMachineTabLayout.setHorizontalGroup(
+            addMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addMachineTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(addMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(addMachineOperatorTitle)
+                    .addComponent(addMachineNameTitle)
+                    .addComponent(addMachineSupervisorTitle))
+                .addGap(18, 18, 18)
+                .addGroup(addMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addMachineTabLayout.createSequentialGroup()
+                        .addComponent(addMachineSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(42, Short.MAX_VALUE))
+                    .addGroup(addMachineTabLayout.createSequentialGroup()
+                        .addGroup(addMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addMachineOperator, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addMachineName, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addMachineTabLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addMachineButton)
+                .addGap(83, 83, 83))
+        );
+        addMachineTabLayout.setVerticalGroup(
+            addMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addMachineTabLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(addMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addMachineName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addMachineNameTitle))
+                .addGap(18, 18, 18)
+                .addGroup(addMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addMachineOperatorTitle)
+                    .addComponent(addMachineOperator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(addMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addMachineSupervisorTitle)
+                    .addComponent(addMachineSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(addMachineButton)
+                .addContainerGap(342, Short.MAX_VALUE))
+        );
+
+        MachineTab.addTab("Add", addMachineTab);
+
+        updateMachineNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateMachineNoActionPerformed(evt);
+            }
+        });
+
+        updateMachineName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateMachineNameActionPerformed(evt);
+            }
+        });
+
+        updateMachineNoTitle.setText("CNo");
+
+        updateMachineNameTitle.setText("newName");
+
+        updateMachineOperatorTitle.setText("newOperator");
+
+        updateMachineButton.setText("Update");
+        updateMachineButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateMachineButtonActionPerformed(evt);
+            }
+        });
+
+        updateMachineSupervisorTitle.setText("newSupervisor");
+
+        updateMachineSupervisor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateMachineSupervisorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout updateMachineTabLayout = new javax.swing.GroupLayout(updateMachineTab);
+        updateMachineTab.setLayout(updateMachineTabLayout);
+        updateMachineTabLayout.setHorizontalGroup(
+            updateMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updateMachineTabLayout.createSequentialGroup()
+                .addGroup(updateMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(updateMachineTabLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(updateMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(updateMachineOperatorTitle)
+                            .addComponent(updateMachineNameTitle, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(updateMachineSupervisorTitle, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updateMachineTabLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(updateMachineNoTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(updateMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(updateMachineNo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateMachineOperator, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateMachineName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateMachineSupervisor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updateMachineTabLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(updateMachineButton)
+                .addGap(63, 63, 63))
+        );
+        updateMachineTabLayout.setVerticalGroup(
+            updateMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updateMachineTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(updateMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateMachineNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateMachineNoTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(updateMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateMachineName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateMachineNameTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(updateMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateMachineOperator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateMachineOperatorTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(updateMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateMachineSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateMachineSupervisorTitle))
+                .addGap(18, 18, 18)
+                .addComponent(updateMachineButton)
+                .addContainerGap(353, Short.MAX_VALUE))
+        );
+
+        MachineTab.addTab("Update", updateMachineTab);
+
+        deleteMachineNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteMachineNoActionPerformed(evt);
+            }
+        });
+
+        deleteMachineNoTitle.setText("Cno");
+
+        deleteMachineButton.setText("Delete");
+        deleteMachineButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteMachineButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout deleteMachineTabLayout = new javax.swing.GroupLayout(deleteMachineTab);
+        deleteMachineTab.setLayout(deleteMachineTabLayout);
+        deleteMachineTabLayout.setHorizontalGroup(
+            deleteMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deleteMachineTabLayout.createSequentialGroup()
+                .addGroup(deleteMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(deleteMachineTabLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(deleteMachineNoTitle)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteMachineNo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(deleteMachineTabLayout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(deleteMachineButton)))
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
+        deleteMachineTabLayout.setVerticalGroup(
+            deleteMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deleteMachineTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(deleteMachineTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deleteMachineNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteMachineNoTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(deleteMachineButton)
+                .addContainerGap(438, Short.MAX_VALUE))
+        );
+
+        MachineTab.addTab("Delete", deleteMachineTab);
+
+        refreshMachineListButton.setText("Refresh");
+        refreshMachineListButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshMachineListButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Machine");
+
+        machineDisplayTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Mno", "Name", "Operator", "Supervisor"
+            }
+        ));
+        machineDisplayTableScroll.setViewportView(machineDisplayTable);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(264, 264, 264))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(machineDisplayTableScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(MachineTab, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(114, 114, 114)
+                    .addComponent(refreshMachineListButton)
+                    .addContainerGap(517, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(machineDisplayTableScroll)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(MachineTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(115, 115, 115))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap(660, Short.MAX_VALUE)
+                    .addComponent(refreshMachineListButton)
+                    .addGap(53, 53, 53)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addMachineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMachineButtonActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_addMachineButtonActionPerformed
+
+    private void addMachineOperatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMachineOperatorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addMachineOperatorActionPerformed
+
+    private void addMachineSupervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMachineSupervisorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addMachineSupervisorActionPerformed
+
+    private void addMachineNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMachineNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addMachineNameActionPerformed
+
+    private void updateMachineNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMachineNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateMachineNoActionPerformed
+
+    private void updateMachineNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMachineNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateMachineNameActionPerformed
+
+    private void updateMachineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMachineButtonActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_updateMachineButtonActionPerformed
+
+    private void deleteMachineNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMachineNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteMachineNoActionPerformed
+
+    private void deleteMachineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMachineButtonActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_deleteMachineButtonActionPerformed
+
+    private void refreshMachineListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshMachineListButtonActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_refreshMachineListButtonActionPerformed
+
+    private void updateMachineSupervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMachineSupervisorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateMachineSupervisorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane MachineTab;
+    private javax.swing.JToggleButton addMachineButton;
+    private javax.swing.JTextField addMachineName;
+    private javax.swing.JLabel addMachineNameTitle;
+    private javax.swing.JTextField addMachineOperator;
+    private javax.swing.JLabel addMachineOperatorTitle;
+    private javax.swing.JTextField addMachineSupervisor;
+    private javax.swing.JLabel addMachineSupervisorTitle;
+    private javax.swing.JPanel addMachineTab;
+    private javax.swing.JButton deleteMachineButton;
+    private javax.swing.JTextField deleteMachineNo;
+    private javax.swing.JLabel deleteMachineNoTitle;
+    private javax.swing.JPanel deleteMachineTab;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTable machineDisplayTable;
+    private javax.swing.JScrollPane machineDisplayTableScroll;
+    private javax.swing.JButton refreshMachineListButton;
+    private javax.swing.JToggleButton updateMachineButton;
+    private javax.swing.JTextField updateMachineName;
+    private javax.swing.JLabel updateMachineNameTitle;
+    private javax.swing.JTextField updateMachineNo;
+    private javax.swing.JLabel updateMachineNoTitle;
+    private javax.swing.JTextField updateMachineOperator;
+    private javax.swing.JLabel updateMachineOperatorTitle;
+    private javax.swing.JTextField updateMachineSupervisor;
+    private javax.swing.JLabel updateMachineSupervisorTitle;
+    private javax.swing.JPanel updateMachineTab;
     // End of variables declaration//GEN-END:variables
 }
