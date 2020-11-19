@@ -7,8 +7,6 @@
 package frontend;
 
 import backend.Part;
-import backend.MadeOn;
-import backend.MadeBy;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -20,8 +18,6 @@ import javax.swing.table.DefaultTableModel;
 public class ProductScene extends javax.swing.JPanel {
     
     Part partData;
-    MadeOn madeOnData;
-    MadeBy madeByData;
 
     /**
      * Creates new form Product
@@ -30,67 +26,15 @@ public class ProductScene extends javax.swing.JPanel {
         initComponents();
         
         partData = new Part();
-        madeOnData = new MadeOn();
-        madeByData = new MadeBy();
+        
     }
     
     /**
      * Part User Defined functions
      */
-    
-    public ArrayList<String[]> mergeParts() throws SQLException{
-        ArrayList<String[]> partList = partData.getParts();
-        ArrayList<String[]> madeOnList = madeOnData.getMadeOns(); 
-        ArrayList<String[]> madeByList = madeByData.getMadeBys();
-        
-        ArrayList<String[]> mergeList = new ArrayList<String[]>();
-        ArrayList<String[]> megaList = new ArrayList<String[]>();
-        
-        for(String[] partArr: partList){
-            for(String[] madeOnArr: madeOnList){
-                if(partArr[0].equals(madeOnArr[0])){
-                    mergeList.add(addArr4(partArr, madeOnArr));
-                }
-            }
-        }
-        
-        for(String[] partArr: mergeList){
-            for(String[] madeByArr: madeByList){
-                if(partArr[0].equals(madeByArr[0])){
-                    megaList.add(addArr5(partArr, madeByArr));
-                }
-            }
-        }
-        
-        return megaList;
-    }
-    
-    public String[] addArr4(String[] Arr1, String[] Arr2){
-        String[] newArr = new String[5];
-        newArr[0] = Arr1[0];
-        newArr[1] = Arr1[1];
-        newArr[2] = Arr1[2];
-        newArr[3] = Arr1[3];
-        newArr[4] = Arr2[1];
-        
-        return newArr;
-    }
-    
-    public String[] addArr5(String[] Arr1, String[] Arr2){
-        String[] newArr = new String[6];
-        newArr[0] = Arr1[0];
-        newArr[1] = Arr1[1];
-        newArr[2] = Arr1[2];
-        newArr[3] = Arr1[3];
-        newArr[4] = Arr2[4];
-        newArr[5] = Arr2[1];
-        
-        return newArr;
-    }
-    
     public void showParts() throws SQLException{
         clearTable();
-        ArrayList<String[]> list = mergeParts();
+        ArrayList<String[]> list = partData.getAllParts();
         DefaultTableModel model = (DefaultTableModel) showPartTable.getModel();
         Object[] row = new Object[6];
             

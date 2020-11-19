@@ -35,15 +35,15 @@ public class Part extends DataConnection{
     }
     
     public ArrayList<String[]> getAllParts() throws SQLException{
-        String stmt = "SELECT (T_Part.part_partno,"
-                + "            T_Part.part_description,"
-                + "            T_Part.part_cost,"
-                + "            T_MadeOn.madeon_machine_MNo,"
-                + "            T_MadeBy.madeby_employee_ENo,"
-                + "            T_Part.part_manufactureDate) "
+        String stmt = "SELECT T_Part.part_partno,"
+                + "T_Part.part_description,"
+                + "T_Part.part_cost,"
+                + "T_MadeOn.madeon_machine_MNo,"
+                + "T_MadeBy.madeby_employee_ENo,"
+                + "T_Part.part_manufactureDate "
                 + "FROM T_PART "
-                + "LEFT JOIN T_MadeOn ON T_part.part_partno = T_MadeOn.madeby_part_PartNo "
-                + "LEFT JOIN T_MadeBy ON T_part.part_partno = T_MadeBy.madeon_part_PartNo";
+                + "LEFT JOIN T_MadeOn ON T_part.part_partno = T_MadeOn.madeon_part_PartNo "
+                + "LEFT JOIN T_MadeBy ON T_part.part_partno = T_MadeBy.madeby_part_PartNo";
         
         ResultSet rs = this.runStatement(stmt);
         ArrayList<String[]> partList = new ArrayList<>();
