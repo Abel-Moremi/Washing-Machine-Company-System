@@ -32,6 +32,7 @@
                   <Component id="productButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="machineButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="ordersButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="reportsButton" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -52,6 +53,8 @@
               <Component id="machineButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="ordersButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="reportsButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -104,6 +107,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ordersButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="reportsButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reports"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reportsButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
