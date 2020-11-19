@@ -28,19 +28,410 @@ public class ReportsScene extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        reportDisplayArea = new javax.swing.JTextArea();
+        reportTabPane = new javax.swing.JTabbedPane();
+        a = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        aSearchButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        aCno = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        b = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        bPrNo = new javax.swing.JTextField();
+        bSearchButton = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        c = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        cPrNo = new javax.swing.JTextField();
+        cSearchButton = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        d = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        e = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        eEno = new javax.swing.JTextField();
+        eSearchButton = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        f = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        fCheckButton = new javax.swing.JButton();
+        h = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        hPrNo = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        hSearchButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        reportDisplayArea.setColumns(20);
+        reportDisplayArea.setRows(5);
+        jScrollPane1.setViewportView(reportDisplayArea);
+
+        jLabel2.setText("customer who has ordered more than 5 products");
+
+        aSearchButton.setText("Search");
+
+        jLabel4.setText("For a specified product");
+
+        aCno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aCnoActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Cno");
+
+        javax.swing.GroupLayout aLayout = new javax.swing.GroupLayout(a);
+        a.setLayout(aLayout);
+        aLayout.setHorizontalGroup(
+            aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aLayout.createSequentialGroup()
+                .addGroup(aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(aCno, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(aLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+            .addGroup(aLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(aSearchButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        aLayout.setVerticalGroup(
+            aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(aCno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(aSearchButton)
+                .addContainerGap(125, Short.MAX_VALUE))
+        );
+
+        reportTabPane.addTab("A", a);
+
+        jLabel3.setText("List employees (Operators and Supervisors) ");
+
+        jLabel5.setText("involved in the manufacture of Product");
+
+        bSearchButton.setText("Search");
+
+        jLabel8.setText("PrNo");
+
+        javax.swing.GroupLayout bLayout = new javax.swing.GroupLayout(b);
+        b.setLayout(bLayout);
+        bLayout.setHorizontalGroup(
+            bLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bLayout.createSequentialGroup()
+                .addGroup(bLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(bLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)))
+                    .addGroup(bLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bPrNo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(bLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(bSearchButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        bLayout.setVerticalGroup(
+            bLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addGap(29, 29, 29)
+                .addGroup(bLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bPrNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bSearchButton)
+                .addContainerGap(109, Short.MAX_VALUE))
+        );
+
+        reportTabPane.addTab("B", b);
+
+        jLabel6.setText("Parts are used in the assembly of Product");
+
+        cSearchButton.setText("Search");
+
+        jLabel9.setText("PrNo");
+
+        javax.swing.GroupLayout cLayout = new javax.swing.GroupLayout(c);
+        c.setLayout(cLayout);
+        cLayout.setHorizontalGroup(
+            cLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cLayout.createSequentialGroup()
+                .addGroup(cLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
+                    .addGroup(cLayout.createSequentialGroup()
+                        .addGroup(cLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cPrNo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cLayout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addComponent(cSearchButton)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        cLayout.setVerticalGroup(
+            cLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addGap(27, 27, 27)
+                .addGroup(cLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cPrNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cSearchButton)
+                .addContainerGap(131, Short.MAX_VALUE))
+        );
+
+        reportTabPane.addTab("C", c);
+
+        jLabel10.setText(" machines are located in the Electrical Section");
+
+        javax.swing.GroupLayout dLayout = new javax.swing.GroupLayout(d);
+        d.setLayout(dLayout);
+        dLayout.setHorizontalGroup(
+            dLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        dLayout.setVerticalGroup(
+            dLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addContainerGap(212, Short.MAX_VALUE))
+        );
+
+        reportTabPane.addTab("D", d);
+
+        jLabel11.setText("Nuber of Parts Operator has made today");
+
+        eSearchButton.setText("Search");
+
+        jLabel12.setText("Eno");
+
+        javax.swing.GroupLayout eLayout = new javax.swing.GroupLayout(e);
+        e.setLayout(eLayout);
+        eLayout.setHorizontalGroup(
+            eLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eLayout.createSequentialGroup()
+                .addGroup(eLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(eLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
+                    .addGroup(eLayout.createSequentialGroup()
+                        .addGroup(eLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(eLayout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addComponent(eSearchButton))
+                            .addGroup(eLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(eEno, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        eLayout.setVerticalGroup(
+            eLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addGap(29, 29, 29)
+                .addGroup(eLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eEno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(eSearchButton)
+                .addContainerGap(129, Short.MAX_VALUE))
+        );
+
+        reportTabPane.addTab("E", e);
+
+        jLabel13.setText("average salary of Supervisors");
+
+        fCheckButton.setText("Check");
+
+        javax.swing.GroupLayout fLayout = new javax.swing.GroupLayout(f);
+        f.setLayout(fLayout);
+        fLayout.setHorizontalGroup(
+            fLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(fLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(fCheckButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        fLayout.setVerticalGroup(
+            fLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(fCheckButton)
+                .addContainerGap(171, Short.MAX_VALUE))
+        );
+
+        reportTabPane.addTab("F", f);
+
+        jLabel14.setText(" total cost of the Parts in the assembly of ");
+
+        jLabel15.setText(" one product");
+
+        jLabel16.setText("PrNo");
+
+        hSearchButton.setText("Search");
+
+        javax.swing.GroupLayout hLayout = new javax.swing.GroupLayout(h);
+        h.setLayout(hLayout);
+        hLayout.setHorizontalGroup(
+            hLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(hLayout.createSequentialGroup()
+                .addGroup(hLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(hLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(hLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(hLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(hPrNo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(hLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(hSearchButton)))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        hLayout.setVerticalGroup(
+            hLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(hLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15)
+                .addGap(28, 28, 28)
+                .addGroup(hLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hPrNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(hSearchButton)
+                .addContainerGap(110, Short.MAX_VALUE))
+        );
+
+        reportTabPane.addTab("H", h);
+
+        jLabel1.setText("Reports");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(reportTabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(jLabel1)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(reportTabPane))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void aCnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aCnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aCnoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel a;
+    private javax.swing.JTextField aCno;
+    private javax.swing.JButton aSearchButton;
+    private javax.swing.JPanel b;
+    private javax.swing.JTextField bPrNo;
+    private javax.swing.JButton bSearchButton;
+    private javax.swing.JPanel c;
+    private javax.swing.JTextField cPrNo;
+    private javax.swing.JButton cSearchButton;
+    private javax.swing.JPanel d;
+    private javax.swing.JPanel e;
+    private javax.swing.JTextField eEno;
+    private javax.swing.JButton eSearchButton;
+    private javax.swing.JPanel f;
+    private javax.swing.JButton fCheckButton;
+    private javax.swing.JPanel h;
+    private javax.swing.JTextField hPrNo;
+    private javax.swing.JButton hSearchButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea reportDisplayArea;
+    private javax.swing.JTabbedPane reportTabPane;
     // End of variables declaration//GEN-END:variables
 }
