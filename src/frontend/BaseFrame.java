@@ -27,6 +27,7 @@ public class BaseFrame extends JFrame implements ActionListener{
     MainScene main;
     EmployeeScene employee;
     ProductScene product;
+    MachineScene machine;
     
 
     /**
@@ -43,15 +44,14 @@ public class BaseFrame extends JFrame implements ActionListener{
         customer = new CustomerScene();
         employee = new EmployeeScene();
         product = new ProductScene();
+        machine = new MachineScene();
         
         base.add(main, "main");
         base.add(customer, "customer");
         base.add(employee, "employee");
         base.add(product, "product");
-        
-        
-        
-        
+        base.add(machine, "machine");
+          
         JButton customerButton = new JButton();
         customerButton.setText("Customer");
         customerButton.addActionListener(new ActionListener() {
@@ -84,6 +84,14 @@ public class BaseFrame extends JFrame implements ActionListener{
             }
         });
         
+        JButton machineButton = new JButton();
+        machineButton.setText("Machine");
+        machineButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                machineButtonActionPerformed(evt);
+            }
+        });
+        
         Box box = Box.createVerticalBox();
         
         box.add(Box.createVerticalStrut(10));
@@ -94,6 +102,8 @@ public class BaseFrame extends JFrame implements ActionListener{
         box.add(employeeButton);
         box.add(Box.createVerticalStrut(10));
         box.add(productButton);
+        box.add(Box.createVerticalStrut(10));
+        box.add(machineButton);
         box.add(Box.createVerticalStrut(10));
         
         add(box, BorderLayout.WEST);
@@ -123,6 +133,7 @@ public class BaseFrame extends JFrame implements ActionListener{
         employeeButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
         productButton = new javax.swing.JButton();
+        machineButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,6 +165,13 @@ public class BaseFrame extends JFrame implements ActionListener{
             }
         });
 
+        machineButton.setText("Machine");
+        machineButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machineButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,7 +182,8 @@ public class BaseFrame extends JFrame implements ActionListener{
                     .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(customerButton)
                     .addComponent(employeeButton)
-                    .addComponent(productButton))
+                    .addComponent(productButton)
+                    .addComponent(machineButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -178,7 +197,9 @@ public class BaseFrame extends JFrame implements ActionListener{
                 .addComponent(customerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(productButton)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(machineButton)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -203,6 +224,11 @@ public class BaseFrame extends JFrame implements ActionListener{
         // TODO add your handling code here:
         cardLayout.show(base, "product");
     }//GEN-LAST:event_productButtonActionPerformed
+
+    private void machineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machineButtonActionPerformed
+        // TODO add your handling code here:
+        cardLayout.show(base, "machine");
+    }//GEN-LAST:event_machineButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,6 +269,7 @@ public class BaseFrame extends JFrame implements ActionListener{
     private javax.swing.JButton customerButton;
     private javax.swing.JButton employeeButton;
     private javax.swing.JButton homeButton;
+    private javax.swing.JButton machineButton;
     private javax.swing.JButton productButton;
     // End of variables declaration//GEN-END:variables
 

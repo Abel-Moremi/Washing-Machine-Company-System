@@ -30,6 +30,7 @@
                   <Component id="customerButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="employeeButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="productButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="machineButton" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -46,7 +47,9 @@
               <Component id="customerButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="productButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="13" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="machineButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,6 +85,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="productButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="machineButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Machine"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="machineButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
