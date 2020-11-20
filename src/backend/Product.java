@@ -80,14 +80,14 @@ public class Product extends DataConnection{
 
     public void updateProduct(String prNo, String newName, String newCost){
         String updateProductStmt = "UPDATE T_Product "
-                + "SET product_PrName = '"+newName+"', product_cost = '"+newCost+"'"
+                + "SET product_PrName = '"+newName+"', product_cost = '"+newCost+"' "
                 + "WHERE product_MNo ='"+prNo+"'";
         
         this.runStatement(updateProductStmt);
     }
 
     public void deleteProduct(String prNo){
-        String deleteProductStmt = "DELETE FROM T_Part WHERE part_PartNo='"+prNo+"'";
+        String deleteProductStmt = "DELETE FROM T_Product WHERE product_MNo='"+prNo+"'";
         this.runStatement(deleteProductStmt);
     }
 }

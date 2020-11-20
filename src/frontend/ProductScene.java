@@ -200,6 +200,18 @@ public class ProductScene extends javax.swing.JPanel {
         updateProductNameText.setText(" ");
         updateProductCostText.setText(" ");
     }
+    
+    public void deleteProduct() throws SQLException{
+        String pNo = deleteProductNoText.getText();
+        
+        productData.deleteProduct(pNo);
+        showProducts();
+        clearDeleteProductField();
+    }
+    
+     public void clearDeleteProductField(){
+        deleteProductNoText.setText(" ");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -665,6 +677,11 @@ public class ProductScene extends javax.swing.JPanel {
         deleteProductNoTitle.setText("PNo");
 
         deleteProductButton.setText("Delete");
+        deleteProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteProductButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout deleteProductPaneLayout = new javax.swing.GroupLayout(deleteProductPane);
         deleteProductPane.setLayout(deleteProductPaneLayout);
@@ -1002,6 +1019,15 @@ public class ProductScene extends javax.swing.JPanel {
             System.err.println("SQLException: " + ex.getMessage());
         }     
     }//GEN-LAST:event_updateProductButtonActionPerformed
+
+    private void deleteProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteProductButtonActionPerformed
+        // TODO add your handling code here:
+         try {
+            deleteProduct();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }     
+    }//GEN-LAST:event_deleteProductButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
