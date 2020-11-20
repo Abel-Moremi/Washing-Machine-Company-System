@@ -1,6 +1,8 @@
 package backend;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -8,17 +10,41 @@ import java.sql.ResultSet;
  */
 
 public class Assembles extends DataConnection{
-
-    public ResultSet getAssembles(){
+    
+    public ArrayList<String[]> getAssembles() throws SQLException{
         String stmt = "SELECT * FROM T_Assembles";
         ResultSet rs = this.runStatement(stmt);
-        return rs;
+        
+        ArrayList<String[]> assemblesList = new ArrayList<>();
+        
+        while(rs.next()){
+            
+            String[] temp = new String[2];
+            temp[0] = rs.getString("assembles_product_PNo");
+            temp[1] = rs.getString("assembles_part_PartNo");
+            
+            assemblesList.add(temp);
+        }
+        
+        return assemblesList;
     }
-
-    public ResultSet getAssemble(String PNo){
+    
+     public ArrayList<String[]> getAssemble(String PNo) throws SQLException{
         String stmt = "SELECT * FROM T_Assembles WHERE assembles_product_PNo ='"+PNo+"'";
         ResultSet rs = this.runStatement(stmt);
-        return rs;
+        
+        ArrayList<String[]> assemblesList = new ArrayList<>();
+        
+        while(rs.next()){
+            
+            String[] temp = new String[2];
+            temp[0] = rs.getString("assembles_product_PNo");
+            temp[1] = rs.getString("assembles_part_PartNo");
+            
+            assemblesList.add(temp);
+        }
+        
+        return assemblesList;
     }
 
     public void addAssemble(String PNo, String PrNo){

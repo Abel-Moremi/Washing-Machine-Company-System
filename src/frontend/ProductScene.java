@@ -8,6 +8,7 @@ package frontend;
 
 import backend.Part;
 import backend.Product;
+import backend.Assembles;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -20,6 +21,7 @@ public class ProductScene extends javax.swing.JPanel {
     
     Part partData;
     Product productData;
+    Assembles assemblesData;
 
     /**
      * Creates new form Product
@@ -29,6 +31,7 @@ public class ProductScene extends javax.swing.JPanel {
         
         partData = new Part();
         productData = new Product();
+        assemblesData = new Assembles();
         
     }
     
@@ -212,6 +215,36 @@ public class ProductScene extends javax.swing.JPanel {
      public void clearDeleteProductField(){
         deleteProductNoText.setText(" ");
     }
+     
+    /**
+     * End Product User Defined functions
+     */
+     
+     /**
+     * Assembles User Defined functions
+     */
+     
+    public void showAssembles() throws SQLException{
+        clearProductAssembleTable();
+        ArrayList<String[]> list = assemblesData.getAssembles();
+        DefaultTableModel model = (DefaultTableModel) showProductAssembleTable.getModel();
+        Object[] row = new Object[2];
+            
+        for(String[] array: list){
+            row[0] = array[0];
+            row[1] = array[1];
+            model.addRow(row);
+        }
+            
+    }
+    
+     public void clearProductAssembleTable(){
+        DefaultTableModel model = (DefaultTableModel) showProductAssembleTable.getModel();
+        if(model.getRowCount() > 0){
+            model.setRowCount(0);
+        }
+    }
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -752,6 +785,11 @@ public class ProductScene extends javax.swing.JPanel {
         productAssembleScrollPane.setViewportView(showProductAssembleTable);
 
         refreshProductAssembleButton.setText("Refresh");
+        refreshProductAssembleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshProductAssembleButtonActionPerformed(evt);
+            }
+        });
 
         addProductAssemblePrNoTitle.setText("Product#");
 
@@ -1028,6 +1066,15 @@ public class ProductScene extends javax.swing.JPanel {
             System.err.println("SQLException: " + ex.getMessage());
         }     
     }//GEN-LAST:event_deleteProductButtonActionPerformed
+
+    private void refreshProductAssembleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshProductAssembleButtonActionPerformed
+        // TODO add your handling code here:
+         try {
+            showAssembles();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }   
+    }//GEN-LAST:event_refreshProductAssembleButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
