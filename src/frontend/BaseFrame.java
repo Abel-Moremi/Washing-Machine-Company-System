@@ -27,6 +27,9 @@ public class BaseFrame extends JFrame implements ActionListener{
     MainScene main;
     EmployeeScene employee;
     ProductScene product;
+    MachineScene machine;
+    OrdersScene orders;
+    ReportsScene reports;
     
 
     /**
@@ -43,15 +46,18 @@ public class BaseFrame extends JFrame implements ActionListener{
         customer = new CustomerScene();
         employee = new EmployeeScene();
         product = new ProductScene();
+        machine = new MachineScene();
+        orders = new OrdersScene();
+        reports = new ReportsScene();
         
         base.add(main, "main");
         base.add(customer, "customer");
         base.add(employee, "employee");
         base.add(product, "product");
-        
-        
-        
-        
+        base.add(machine, "machine");
+        base.add(orders, "orders");
+        base.add(reports, "reports");
+          
         JButton customerButton = new JButton();
         customerButton.setText("Customer");
         customerButton.addActionListener(new ActionListener() {
@@ -84,6 +90,30 @@ public class BaseFrame extends JFrame implements ActionListener{
             }
         });
         
+        JButton machineButton = new JButton();
+        machineButton.setText("Machine");
+        machineButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                machineButtonActionPerformed(evt);
+            }
+        });
+        
+        JButton ordersButton = new JButton();
+        ordersButton.setText("Orders");
+        ordersButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ordersButtonActionPerformed(evt);
+            }
+        });
+        
+        JButton reportsButton = new JButton();
+        reportsButton.setText("Reports");
+        reportsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                reportsButtonActionPerformed(evt);
+            }
+        });
+        
         Box box = Box.createVerticalBox();
         
         box.add(Box.createVerticalStrut(10));
@@ -94,6 +124,12 @@ public class BaseFrame extends JFrame implements ActionListener{
         box.add(employeeButton);
         box.add(Box.createVerticalStrut(10));
         box.add(productButton);
+        box.add(Box.createVerticalStrut(10));
+        box.add(machineButton);
+        box.add(Box.createVerticalStrut(10));
+        box.add(ordersButton);
+        box.add(Box.createVerticalStrut(10));
+         box.add(reportsButton);
         box.add(Box.createVerticalStrut(10));
         
         add(box, BorderLayout.WEST);
@@ -123,6 +159,9 @@ public class BaseFrame extends JFrame implements ActionListener{
         employeeButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
         productButton = new javax.swing.JButton();
+        machineButton = new javax.swing.JButton();
+        ordersButton = new javax.swing.JButton();
+        reportsButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,6 +193,27 @@ public class BaseFrame extends JFrame implements ActionListener{
             }
         });
 
+        machineButton.setText("Machine");
+        machineButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machineButtonActionPerformed(evt);
+            }
+        });
+
+        ordersButton.setText("Orders");
+        ordersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordersButtonActionPerformed(evt);
+            }
+        });
+
+        reportsButton.setText("Reports");
+        reportsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportsButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,7 +224,10 @@ public class BaseFrame extends JFrame implements ActionListener{
                     .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(customerButton)
                     .addComponent(employeeButton)
-                    .addComponent(productButton))
+                    .addComponent(productButton)
+                    .addComponent(machineButton)
+                    .addComponent(ordersButton)
+                    .addComponent(reportsButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -178,7 +241,13 @@ public class BaseFrame extends JFrame implements ActionListener{
                 .addComponent(customerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(productButton)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(machineButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ordersButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(reportsButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -203,6 +272,21 @@ public class BaseFrame extends JFrame implements ActionListener{
         // TODO add your handling code here:
         cardLayout.show(base, "product");
     }//GEN-LAST:event_productButtonActionPerformed
+
+    private void machineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machineButtonActionPerformed
+        // TODO add your handling code here:
+        cardLayout.show(base, "machine");
+    }//GEN-LAST:event_machineButtonActionPerformed
+
+    private void ordersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordersButtonActionPerformed
+        // TODO add your handling code here:
+        cardLayout.show(base, "orders");
+    }//GEN-LAST:event_ordersButtonActionPerformed
+
+    private void reportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsButtonActionPerformed
+        // TODO add your handling code here:
+         cardLayout.show(base, "reports");
+    }//GEN-LAST:event_reportsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,7 +327,10 @@ public class BaseFrame extends JFrame implements ActionListener{
     private javax.swing.JButton customerButton;
     private javax.swing.JButton employeeButton;
     private javax.swing.JButton homeButton;
+    private javax.swing.JButton machineButton;
+    private javax.swing.JButton ordersButton;
     private javax.swing.JButton productButton;
+    private javax.swing.JButton reportsButton;
     // End of variables declaration//GEN-END:variables
 
     @Override
