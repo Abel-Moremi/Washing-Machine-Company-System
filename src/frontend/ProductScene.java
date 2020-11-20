@@ -288,6 +288,20 @@ public class ProductScene extends javax.swing.JPanel {
         updateProductAssemblePrNoText.setText(" ");
         updateProductAssembleNewPartNoText.setText(" ");
     }
+    
+    public void deleteAssemble() throws SQLException{
+        String pNo =  deleteProductAssemblePartNoText.getText();
+        String prNo = deleteProductAssemblePrNoText.getText();
+        
+        assemblesData.deleteAssemble(pNo, prNo);
+        showAssembles();
+        clearDeleteAssembleField();
+    }
+    
+     public void clearDeleteAssembleField(){
+        deleteProductAssemblePartNoText.setText(" ");
+        deleteProductAssemblePrNoText.setText(" ");
+    }
      
 
     /**
@@ -372,8 +386,10 @@ public class ProductScene extends javax.swing.JPanel {
         updateProductAssembleNewPartNoTitle = new javax.swing.JLabel();
         deleteProductAssemblePane = new javax.swing.JPanel();
         deleteProductAssemblePrNoText = new javax.swing.JTextField();
-        deleteProductAssemblePrNoTitle = new javax.swing.JLabel();
+        deleteProductAssemblePartNoTitle = new javax.swing.JLabel();
         deleteProductAssembleButton = new javax.swing.JButton();
+        deleteProductAssemblePartNoText = new javax.swing.JTextField();
+        deleteProductAssemblePrNoTitle1 = new javax.swing.JLabel();
 
         productTitle.setText("Product");
 
@@ -864,7 +880,7 @@ public class ProductScene extends javax.swing.JPanel {
                     .addGroup(addProductAssemblePaneLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(addProductAssembleButton)))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         addProductAssemblePaneLayout.setVerticalGroup(
             addProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -879,7 +895,7 @@ public class ProductScene extends javax.swing.JPanel {
                     .addComponent(addProductAssemblePartNoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addProductAssembleButton)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         productAssembleActionTab.addTab("Add", addProductAssemblePane);
@@ -914,7 +930,7 @@ public class ProductScene extends javax.swing.JPanel {
                         .addComponent(updateProductAssemblePartNoText)
                         .addComponent(updateProductAssemblePrNoText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(updateProductAssembleNewPartNoText)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         updateProductAssemblePaneLayout.setVerticalGroup(
             updateProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -938,35 +954,57 @@ public class ProductScene extends javax.swing.JPanel {
 
         productAssembleActionTab.addTab("Update", updateProductAssemblePane);
 
-        deleteProductAssemblePrNoTitle.setText("Product#");
+        deleteProductAssemblePartNoTitle.setText("Part#");
 
         deleteProductAssembleButton.setText("Delete");
+        deleteProductAssembleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteProductAssembleButtonActionPerformed(evt);
+            }
+        });
+
+        deleteProductAssemblePrNoTitle1.setText("Product#");
 
         javax.swing.GroupLayout deleteProductAssemblePaneLayout = new javax.swing.GroupLayout(deleteProductAssemblePane);
         deleteProductAssemblePane.setLayout(deleteProductAssemblePaneLayout);
         deleteProductAssemblePaneLayout.setHorizontalGroup(
             deleteProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deleteProductAssemblePaneLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(deleteProductAssemblePrNoTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(deleteProductAssemblePrNoText, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                .addGap(105, 105, 105))
             .addGroup(deleteProductAssemblePaneLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(deleteProductAssembleButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(deleteProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(deleteProductAssemblePaneLayout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(deleteProductAssemblePrNoText))
+                    .addGroup(deleteProductAssemblePaneLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addGroup(deleteProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(deleteProductAssemblePrNoTitle1)
+                            .addComponent(deleteProductAssemblePartNoTitle))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(deleteProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(deleteProductAssemblePaneLayout.createSequentialGroup()
+                                .addComponent(deleteProductAssembleButton)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(deleteProductAssemblePartNoText, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE))))
+                .addGap(114, 114, 114))
         );
         deleteProductAssemblePaneLayout.setVerticalGroup(
             deleteProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deleteProductAssemblePaneLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addGroup(deleteProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteProductAssemblePrNoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteProductAssemblePrNoTitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(deleteProductAssembleButton)
-                .addGap(45, 45, 45))
+                .addGap(18, 18, 18)
+                .addGroup(deleteProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(deleteProductAssemblePaneLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(deleteProductAssemblePrNoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(deleteProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(deleteProductAssemblePartNoTitle)
+                            .addComponent(deleteProductAssemblePartNoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(deleteProductAssembleButton)
+                        .addGap(55, 55, 55))
+                    .addGroup(deleteProductAssemblePaneLayout.createSequentialGroup()
+                        .addComponent(deleteProductAssemblePrNoTitle1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         productAssembleActionTab.addTab("Delete", deleteProductAssemblePane);
@@ -1155,6 +1193,15 @@ public class ProductScene extends javax.swing.JPanel {
         }   
     }//GEN-LAST:event_updateProductAssembleButtonActionPerformed
 
+    private void deleteProductAssembleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteProductAssembleButtonActionPerformed
+        // TODO add your handling code here:
+         try {
+            deleteAssemble();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }   
+    }//GEN-LAST:event_deleteProductAssembleButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addPanel;
@@ -1185,8 +1232,10 @@ public class ProductScene extends javax.swing.JPanel {
     private javax.swing.JLabel deletePartNoTitle;
     private javax.swing.JButton deleteProductAssembleButton;
     private javax.swing.JPanel deleteProductAssemblePane;
+    private javax.swing.JTextField deleteProductAssemblePartNoText;
+    private javax.swing.JLabel deleteProductAssemblePartNoTitle;
     private javax.swing.JTextField deleteProductAssemblePrNoText;
-    private javax.swing.JLabel deleteProductAssemblePrNoTitle;
+    private javax.swing.JLabel deleteProductAssemblePrNoTitle1;
     private javax.swing.JButton deleteProductButton;
     private javax.swing.JTextField deleteProductNoText;
     private javax.swing.JLabel deleteProductNoTitle;

@@ -64,7 +64,7 @@ public class Assembles extends DataConnection{
     }
 
     public void deleteAssemble(String PNo, String PrNo){
-        String deleteAssembleStmt = "DELETE FROM T_Assembles WHERE assembles_product_PNo ='"+PNo+"' AND assembles_part_PartNo ='"+PrNo+"'";
+        String deleteAssembleStmt = "DELETE FROM T_Assembles WHERE assembles_product_PNo ='"+PrNo+"' AND assembles_part_PartNo ='"+PNo+"'";
         this.runStatement(deleteAssembleStmt);
     }
     
