@@ -184,6 +184,22 @@ public class ProductScene extends javax.swing.JPanel {
         addProductNameText.setText(" ");
         addProductCostText.setText(" ");
     }
+    
+    public void updateProduct() throws SQLException{
+        String pNo = updateProductNoText.getText();
+        String pName = updateProductNameText.getText();
+        String pCost = updateProductCostText.getText();
+        
+        productData.updateProduct(pNo, pName, pCost);
+        showProduct(pNo);
+        clearUpdateProductFields();
+    }
+    
+    public void clearUpdateProductFields(){
+        updateProductNoText.setText(" ");
+        updateProductNameText.setText(" ");
+        updateProductCostText.setText(" ");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -594,6 +610,11 @@ public class ProductScene extends javax.swing.JPanel {
         updateProducteCostTitle.setText("Cost");
 
         updateProductButton.setText("Update");
+        updateProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateProductButtonActionPerformed(evt);
+            }
+        });
 
         updateProductNoTitle.setText("PNo");
 
@@ -972,6 +993,15 @@ public class ProductScene extends javax.swing.JPanel {
             System.err.println("SQLException: " + ex.getMessage());
         }     
     }//GEN-LAST:event_addProductButtonActionPerformed
+
+    private void updateProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProductButtonActionPerformed
+        // TODO add your handling code here:
+         try {
+            updateProduct();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }     
+    }//GEN-LAST:event_updateProductButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
