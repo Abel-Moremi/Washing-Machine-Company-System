@@ -109,6 +109,18 @@ public class ProductScene extends javax.swing.JPanel {
         updatePartDescriptionText.setText(" ");
         updatePartCostText.setText(" ");
     }
+    
+     public void deletePart() throws SQLException{
+        String pNo = deletePartNoText.getText();
+        
+        partData.deleteAllPart(pNo);
+        showParts();
+        clearDeletePartField();
+    }
+    
+     public void clearDeletePartField(){
+        deletePartNoText.setText(" ");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -375,6 +387,11 @@ public class ProductScene extends javax.swing.JPanel {
         partActionTab.addTab("Update", updatePanel);
 
         deletePartButton.setText("Delete");
+        deletePartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletePartButtonActionPerformed(evt);
+            }
+        });
 
         deletePartNoTitle.setText("PartNo");
 
@@ -855,6 +872,15 @@ public class ProductScene extends javax.swing.JPanel {
             System.err.println("SQLException: " + ex.getMessage());
         }
     }//GEN-LAST:event_updatePartButtonActionPerformed
+
+    private void deletePartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePartButtonActionPerformed
+        // TODO add your handling code here:
+         try {
+            deletePart();
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_deletePartButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

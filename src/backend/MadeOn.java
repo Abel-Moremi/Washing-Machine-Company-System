@@ -54,14 +54,14 @@ public class MadeOn extends DataConnection{
 
     public void updateMadeOn(String MNo, String PrNo){
         String updateMadeOnStmt = "UPDATE T_MadeOn "
-                + "SET madeon_part_PartNo='"+PrNo+"'"
+                + "SET madeon_part_PartNo='"+PrNo+"' "
                 + "WHERE madeon_machine_MNo='"+MNo+"' AND madeon_part_PartNo='"+PrNo+"'";
         
         this.runStatement(updateMadeOnStmt);
     }
 
     public void deleteMadeOn(String MNo, String PrNo){
-        String deleteMadeOnStmt = "DELETE FROM T_MadeOn"
+        String deleteMadeOnStmt = "DELETE FROM T_MadeOn "
                 + "WHERE madeon_machine_MNo='"+MNo+"' AND madeon_part_PartNo='"+PrNo+"'";
         this.runStatement(deleteMadeOnStmt);
     }

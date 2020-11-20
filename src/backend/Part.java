@@ -107,6 +107,37 @@ public class Part extends DataConnection{
         madeByData.addMadeBy(partNo, eno);
         
     }
+     
+    public void deleteAllPart(String partNo) throws SQLException{
+        madeOnData = new MadeOn();
+        madeByData = new MadeBy();
+        
+        String mNo = null;
+        String eno = null;
+        String stmt = "SELECT T_Part.part_partno,"
+               + "T_Part.part_description,"
+               + "T_Part.part_cost,"
+               + "T_MadeOn.madeon_machine_MNo,"
+               + "T_MadeBy.madeby_employee_ENo,"
+               + "T_Part.part_manufactureDate "
+               + "FROM T_PART "
+               + "LEFT JOIN T_MadeOn ON T_part.part_partno = T_MadeOn.madeon_part_PartNo "
+               + "LEFT JOIN T_MadeBy ON T_part.part_partno = T_MadeBy.madeby_part_PartNo "
+               + "WHERE part_PartNo='"+partNo+"'";
+        ResultSet rs = this.runStatement(stmt);
+        
+        while(rs.next()){
+           
+            mNo = rs.getString("madeon_machine_MNo");
+            eno = rs.getString("madeby_employee_ENo");
+        
+        }
+        
+        madeOnData.deleteMadeOn(mNo,partNo);
+        madeByData.deleteMadeBy(partNo, eno);
+        this.deletePart(partNo);
+        
+    }
 
     public ArrayList<String[]> getPart(String partNo) throws SQLException{
         String stmt = "SELECT * FROM T_PART WHERE part_PartNo='"+partNo+"'";
