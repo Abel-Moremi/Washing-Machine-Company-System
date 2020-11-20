@@ -888,7 +888,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="addProductAssemblePartNoText" alignment="0" pref="99" max="32767" attributes="0"/>
-                                  <Component id="addProductAssemblePartnoText" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="addProductAssemblePrNoText" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                       <Component id="addProductAssembleButton" min="-2" max="-2" attributes="0"/>
@@ -904,7 +904,7 @@
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="addProductAssemblePrNoTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addProductAssemblePartnoText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addProductAssemblePrNoText" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -924,7 +924,7 @@
                         <Property name="text" type="java.lang.String" value="Product#"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="addProductAssemblePartnoText">
+                    <Component class="javax.swing.JTextField" name="addProductAssemblePrNoText">
                     </Component>
                     <Component class="javax.swing.JLabel" name="addProductAssemblePartNoTitle">
                       <Properties>
@@ -937,6 +937,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Add"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addProductAssembleButtonActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

@@ -238,11 +238,39 @@ public class ProductScene extends javax.swing.JPanel {
             
     }
     
+    public void showAssemble(String pNo, String prNo ) throws SQLException{
+        clearProductAssembleTable();
+        ArrayList<String[]> list = assemblesData.getAssemble(pNo, prNo);
+        DefaultTableModel model = (DefaultTableModel) showProductAssembleTable.getModel();
+        Object[] row = new Object[2];
+            
+        for(String[] array: list){
+            row[0] = array[0];
+            row[1] = array[1];
+            model.addRow(row);
+        }
+            
+    }
+    
      public void clearProductAssembleTable(){
         DefaultTableModel model = (DefaultTableModel) showProductAssembleTable.getModel();
         if(model.getRowCount() > 0){
             model.setRowCount(0);
         }
+    }
+     
+     public void addAssemble() throws SQLException{
+        String pNo = addProductAssemblePartNoText.getText();
+        String prNo = addProductAssemblePrNoText.getText();
+        
+        assemblesData.addAssemble(pNo, prNo);
+        showAssemble(pNo, prNo);
+        clearAddAssembleFields();
+    }
+      
+    public void clearAddAssembleFields(){
+       addProductAssemblePartNoText.setText(" ");
+       addProductAssemblePrNoText.setText(" ");
     }
      
 
@@ -314,7 +342,7 @@ public class ProductScene extends javax.swing.JPanel {
         productAssembleActionTab = new javax.swing.JTabbedPane();
         addProductAssemblePane = new javax.swing.JPanel();
         addProductAssemblePrNoTitle = new javax.swing.JLabel();
-        addProductAssemblePartnoText = new javax.swing.JTextField();
+        addProductAssemblePrNoText = new javax.swing.JTextField();
         addProductAssemblePartNoTitle = new javax.swing.JLabel();
         addProductAssemblePartNoText = new javax.swing.JTextField();
         addProductAssembleButton = new javax.swing.JButton();
@@ -796,6 +824,11 @@ public class ProductScene extends javax.swing.JPanel {
         addProductAssemblePartNoTitle.setText("Part#");
 
         addProductAssembleButton.setText("Add");
+        addProductAssembleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addProductAssembleButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout addProductAssemblePaneLayout = new javax.swing.GroupLayout(addProductAssemblePane);
         addProductAssemblePane.setLayout(addProductAssemblePaneLayout);
@@ -809,7 +842,7 @@ public class ProductScene extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(addProductAssemblePartNoText, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                    .addComponent(addProductAssemblePartnoText)
+                    .addComponent(addProductAssemblePrNoText)
                     .addGroup(addProductAssemblePaneLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(addProductAssembleButton)))
@@ -821,7 +854,7 @@ public class ProductScene extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(addProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addProductAssemblePrNoTitle)
-                    .addComponent(addProductAssemblePartnoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addProductAssemblePrNoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(addProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addProductAssemblePartNoTitle)
@@ -1076,6 +1109,15 @@ public class ProductScene extends javax.swing.JPanel {
         }   
     }//GEN-LAST:event_refreshProductAssembleButtonActionPerformed
 
+    private void addProductAssembleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductAssembleButtonActionPerformed
+        // TODO add your handling code here:
+          try {
+            addAssemble();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }   
+    }//GEN-LAST:event_addProductAssembleButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addPanel;
@@ -1092,7 +1134,7 @@ public class ProductScene extends javax.swing.JPanel {
     private javax.swing.JPanel addProductAssemblePane;
     private javax.swing.JTextField addProductAssemblePartNoText;
     private javax.swing.JLabel addProductAssemblePartNoTitle;
-    private javax.swing.JTextField addProductAssemblePartnoText;
+    private javax.swing.JTextField addProductAssemblePrNoText;
     private javax.swing.JLabel addProductAssemblePrNoTitle;
     private javax.swing.JButton addProductButton;
     private javax.swing.JTextField addProductCostText;

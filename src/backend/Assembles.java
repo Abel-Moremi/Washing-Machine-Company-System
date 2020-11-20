@@ -29,8 +29,10 @@ public class Assembles extends DataConnection{
         return assemblesList;
     }
     
-     public ArrayList<String[]> getAssemble(String PNo) throws SQLException{
-        String stmt = "SELECT * FROM T_Assembles WHERE assembles_product_PNo ='"+PNo+"'";
+     public ArrayList<String[]> getAssemble(String pNo, String prNo) throws SQLException{
+        String stmt = "SELECT * "
+                + "FROM T_Assembles "
+                + "WHERE assembles_product_PNo ='"+prNo+"' AND assembles_part_PartNo ='"+pNo+"'";
         ResultSet rs = this.runStatement(stmt);
         
         ArrayList<String[]> assemblesList = new ArrayList<>();
@@ -49,7 +51,7 @@ public class Assembles extends DataConnection{
 
     public void addAssemble(String PNo, String PrNo){
         String addAssembleStmt = "INSERT INTO T_Assembles (assembles_product_PNo, assembles_part_PartNo)" 
-                + "VALUES('"+PNo+"', '"+PrNo+"')";
+                + "VALUES('"+PrNo+"', '"+PNo+"')";
         this.runStatement(addAssembleStmt);
     }
 
