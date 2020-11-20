@@ -272,6 +272,22 @@ public class ProductScene extends javax.swing.JPanel {
        addProductAssemblePartNoText.setText(" ");
        addProductAssemblePrNoText.setText(" ");
     }
+    
+    public void updateAssemble() throws SQLException{
+        String pNo = updateProductAssemblePartNoText.getText();
+        String prNo = updateProductAssemblePrNoText.getText();
+        String newPrNo = updateProductAssembleNewPartNoText.getText();
+        
+        assemblesData.updateAssemble(pNo, prNo, newPrNo);
+        showAssemble(pNo, newPrNo);
+        clearUpdateAssembleFields();
+    }
+    
+    public void clearUpdateAssembleFields(){
+        updateProductAssemblePartNoText.setText(" ");
+        updateProductAssemblePrNoText.setText(" ");
+        updateProductAssembleNewPartNoText.setText(" ");
+    }
      
 
     /**
@@ -352,6 +368,8 @@ public class ProductScene extends javax.swing.JPanel {
         updateproductAssemblePrNoTitle = new javax.swing.JLabel();
         updateProductAssemblePartNoTitle = new javax.swing.JLabel();
         updateProductAssembleButton = new javax.swing.JButton();
+        updateProductAssembleNewPartNoText = new javax.swing.JTextField();
+        updateProductAssembleNewPartNoTitle = new javax.swing.JLabel();
         deleteProductAssemblePane = new javax.swing.JPanel();
         deleteProductAssemblePrNoText = new javax.swing.JTextField();
         deleteProductAssemblePrNoTitle = new javax.swing.JLabel();
@@ -871,6 +889,13 @@ public class ProductScene extends javax.swing.JPanel {
         updateProductAssemblePartNoTitle.setText("Part#");
 
         updateProductAssembleButton.setText("Update");
+        updateProductAssembleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateProductAssembleButtonActionPerformed(evt);
+            }
+        });
+
+        updateProductAssembleNewPartNoTitle.setText("newPart");
 
         javax.swing.GroupLayout updateProductAssemblePaneLayout = new javax.swing.GroupLayout(updateProductAssemblePane);
         updateProductAssemblePane.setLayout(updateProductAssemblePaneLayout);
@@ -878,34 +903,37 @@ public class ProductScene extends javax.swing.JPanel {
             updateProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(updateProductAssemblePaneLayout.createSequentialGroup()
                 .addGap(67, 67, 67)
+                .addGroup(updateProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(updateProductAssemblePartNoTitle)
+                    .addComponent(updateproductAssemblePrNoTitle)
+                    .addComponent(updateProductAssembleNewPartNoTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(updateProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(updateProductAssemblePaneLayout.createSequentialGroup()
-                        .addGroup(updateProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(updateProductAssemblePartNoTitle)
-                            .addComponent(updateproductAssemblePrNoTitle))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(updateProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(updateProductAssemblePartNoText)
-                            .addComponent(updateProductAssemblePrNoText, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(updateProductAssemblePaneLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(updateProductAssembleButton)))
-                .addContainerGap(105, Short.MAX_VALUE))
+                    .addComponent(updateProductAssembleButton)
+                    .addGroup(updateProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(updateProductAssemblePartNoText)
+                        .addComponent(updateProductAssemblePrNoText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(updateProductAssembleNewPartNoText)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         updateProductAssemblePaneLayout.setVerticalGroup(
             updateProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(updateProductAssemblePaneLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
                 .addGroup(updateProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateProductAssemblePrNoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updateproductAssemblePrNoTitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(updateProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateProductAssemblePartNoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updateProductAssemblePartNoTitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addGroup(updateProductAssemblePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(updateProductAssembleNewPartNoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateProductAssembleNewPartNoTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(updateProductAssembleButton)
-                .addGap(39, 39, 39))
+                .addGap(33, 33, 33))
         );
 
         productAssembleActionTab.addTab("Update", updateProductAssemblePane);
@@ -1118,6 +1146,15 @@ public class ProductScene extends javax.swing.JPanel {
         }   
     }//GEN-LAST:event_addProductAssembleButtonActionPerformed
 
+    private void updateProductAssembleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProductAssembleButtonActionPerformed
+        // TODO add your handling code here:
+          try {
+            updateAssemble();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }   
+    }//GEN-LAST:event_updateProductAssembleButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addPanel;
@@ -1180,6 +1217,8 @@ public class ProductScene extends javax.swing.JPanel {
     private javax.swing.JTextField updatePartNoText;
     private javax.swing.JLabel updatePartNoTitle;
     private javax.swing.JButton updateProductAssembleButton;
+    private javax.swing.JTextField updateProductAssembleNewPartNoText;
+    private javax.swing.JLabel updateProductAssembleNewPartNoTitle;
     private javax.swing.JPanel updateProductAssemblePane;
     private javax.swing.JTextField updateProductAssemblePartNoText;
     private javax.swing.JLabel updateProductAssemblePartNoTitle;

@@ -55,10 +55,10 @@ public class Assembles extends DataConnection{
         this.runStatement(addAssembleStmt);
     }
 
-    public void updateAsemble(String PNo, String PrNo, String newPrNo){
+    public void updateAssemble(String PNo, String PrNo, String newPrNo){
         String updateAssembleStmt = "UPDATE T_Assembles "
-                + "SET assembles_part_PartNo = '"+newPrNo+"'"
-                + "WHERE assembles_product_PNo ='"+PNo+"' AND assembles_part_PartNo ='"+PrNo+"'";
+                + "SET assembles_part_PartNo = '"+newPrNo+"' "
+                + "WHERE assembles_product_PNo ='"+PrNo+"' AND assembles_part_PartNo ='"+PNo+"'";
         
         this.runStatement(updateAssembleStmt);
     }
