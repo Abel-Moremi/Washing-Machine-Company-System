@@ -76,7 +76,7 @@ public class Part extends DataConnection{
                 + "T_Part.part_manufactureDate "
                 + "FROM T_PART "
                 + "LEFT JOIN T_MadeOn ON T_part.part_partno = T_MadeOn.madeon_part_PartNo "
-                + "LEFT JOIN T_MadeBy ON T_part.part_partno = T_MadeBy.madeby_part_PartNo"
+                + "LEFT JOIN T_MadeBy ON T_part.part_partno = T_MadeBy.madeby_part_PartNo "
                 + "WHERE part_PartNo='"+partNo+"'";
         
         ResultSet rs = this.runStatement(stmt);
@@ -102,10 +102,9 @@ public class Part extends DataConnection{
         madeOnData = new MadeOn();
         madeByData = new MadeBy();
         
+        this.addPart(partNo, description, cost);
         madeOnData.addMadeOn(mno, partNo);
         madeByData.addMadeBy(partNo, eno);
-        
-        this.addPart(partNo, description, cost);
         
     }
 
@@ -126,6 +125,29 @@ public class Part extends DataConnection{
         }
         
         return partList;
+    }
+    
+    public int getlastPNo() throws SQLException{
+        int lastDigits = 00;
+        String eno = "FK-1000";
+        String last4Char = "1000";
+        
+        String getMaxPNoStmt = "SELECT part_PartNo "
+                + "FROM T_PART "
+                + "WHERE part_PartNo = (SELECT MAX(part_PartNo) FROM T_PART)";
+        
+        ResultSet rs = this.runStatement(getMaxPNoStmt);
+        
+        while(rs.next()){
+
+            eno = rs.getString("part_partno");
+        }
+       
+        last4Char = eno.substring(Math.max(eno.length() - 4, 0));
+        
+        lastDigits = Integer.parseInt(last4Char) + 1;
+        
+        return lastDigits;
     }
 
     public void addPart(String partNo, String description, String cost){

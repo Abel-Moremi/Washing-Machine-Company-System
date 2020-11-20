@@ -50,11 +50,48 @@ public class ProductScene extends javax.swing.JPanel {
             
     }
     
+    public void showPart(String PNo) throws SQLException{
+        clearTable();
+        ArrayList<String[]> list = partData.getAllPart(PNo);
+        DefaultTableModel model = (DefaultTableModel) showPartTable.getModel();
+        Object[] row = new Object[6];
+            
+        for(String[] array: list){
+            row[0] = array[0];
+            row[1] = array[1];
+            row[2] = array[2];
+            row[3] = array[3];
+            row[4] = array[4];
+            row[5] = array[5];
+            model.addRow(row);
+        }
+            
+    }
+    
     public void clearTable(){
         DefaultTableModel model = (DefaultTableModel) showPartTable.getModel();
         if(model.getRowCount() > 0){
             model.setRowCount(0);
         }
+    }
+    
+    public void addPart() throws SQLException{
+        String pNo ="FK-0" + partData.getlastPNo();
+        String pDescription = addPartDescriptionText.getText();
+        String pCost = addPartCostText.getText();
+        String pMno = addPartMachineText.getText();
+        String pEno = addPartEmployeeText.getText();
+        
+        partData.addAllPart(pNo, pDescription, pCost, pMno, pEno);
+        showPart(pNo);
+        clearAddPartFields();
+    }
+    
+     public void clearAddPartFields(){
+        addPartDescriptionText.setText(" ");
+        addPartCostText.setText(" ");
+        addPartMachineText.setText(" ");
+        addPartEmployeeText.setText(" ");
     }
 
     /**
@@ -196,6 +233,11 @@ public class ProductScene extends javax.swing.JPanel {
         addPartDescriptionTitle.setText("Description");
 
         addPartButton.setText("Add");
+        addPartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPartButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout addPanelLayout = new javax.swing.GroupLayout(addPanel);
         addPanel.setLayout(addPanelLayout);
@@ -815,6 +857,15 @@ public class ProductScene extends javax.swing.JPanel {
             System.err.println("SQLException: " + ex.getMessage());
         }     
     }//GEN-LAST:event_partRefreshButtonActionPerformed
+
+    private void addPartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartButtonActionPerformed
+        // TODO add your handling code here:
+         try {
+            addPart();
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_addPartButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
