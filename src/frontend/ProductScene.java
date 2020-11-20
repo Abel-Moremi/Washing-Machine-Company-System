@@ -93,6 +93,22 @@ public class ProductScene extends javax.swing.JPanel {
         addPartMachineText.setText(" ");
         addPartEmployeeText.setText(" ");
     }
+     
+     public void updatePart() throws SQLException{
+        String pNo = updatePartNoText.getText();
+        String pDescription = updatePartDescriptionText.getText();
+        String pCost = updatePartCostText.getText();
+        
+        partData.updatePart(pNo, pDescription, pCost);
+        showPart(pNo);
+        clearUpdatePartFields();
+    }
+    
+    public void clearUpdatePartFields(){
+        updatePartNoText.setText(" ");
+        updatePartDescriptionText.setText(" ");
+        updatePartCostText.setText(" ");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -121,14 +137,10 @@ public class ProductScene extends javax.swing.JPanel {
         addPartDescriptionTitle = new javax.swing.JLabel();
         addPartButton = new javax.swing.JButton();
         updatePanel = new javax.swing.JPanel();
-        updatePartEmployeeText = new javax.swing.JTextField();
-        updatePartMachineText = new javax.swing.JTextField();
         updatePartCostText = new javax.swing.JTextField();
         updatePartNoText = new javax.swing.JTextField();
         updatePartDescriptionTitle = new javax.swing.JLabel();
         updatePartCostTitle = new javax.swing.JLabel();
-        updatePartMachineTitle = new javax.swing.JLabel();
-        updatePartEmployeeTitle = new javax.swing.JLabel();
         updatePartButton = new javax.swing.JButton();
         updatePartDescriptionText = new javax.swing.JTextField();
         updatePartNoTitle = new javax.swing.JLabel();
@@ -283,22 +295,10 @@ public class ProductScene extends javax.swing.JPanel {
                     .addComponent(addPartEmployeeTitle))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addPartButton)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         partActionTab.addTab("add", addPanel);
-
-        updatePartEmployeeText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updatePartEmployeeTextActionPerformed(evt);
-            }
-        });
-
-        updatePartMachineText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updatePartMachineTextActionPerformed(evt);
-            }
-        });
 
         updatePartCostText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -316,11 +316,12 @@ public class ProductScene extends javax.swing.JPanel {
 
         updatePartCostTitle.setText("newPartCost");
 
-        updatePartMachineTitle.setText("newMachine");
-
-        updatePartEmployeeTitle.setText("newEmployee");
-
         updatePartButton.setText("Update");
+        updatePartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatePartButtonActionPerformed(evt);
+            }
+        });
 
         updatePartDescriptionText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -337,23 +338,19 @@ public class ProductScene extends javax.swing.JPanel {
             .addGroup(updatePanelLayout.createSequentialGroup()
                 .addGap(81, 81, 81)
                 .addGroup(updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(updatePartEmployeeTitle)
                     .addComponent(updatePartDescriptionTitle)
                     .addComponent(updatePartCostTitle)
-                    .addComponent(updatePartMachineTitle)
                     .addComponent(updatePartNoTitle))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(updatePartNoText, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updatePartCostText, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updatePartMachineText, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updatePartEmployeeText, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updatePartDescriptionText, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updatePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(updatePartButton)
-                .addGap(117, 117, 117))
+                .addGap(118, 118, 118))
         );
         updatePanelLayout.setVerticalGroup(
             updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -370,18 +367,9 @@ public class ProductScene extends javax.swing.JPanel {
                 .addGroup(updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updatePartCostText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updatePartCostTitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updatePartMachineText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updatePartMachineTitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(updatePanelLayout.createSequentialGroup()
-                        .addComponent(updatePartEmployeeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(updatePartButton))
-                    .addComponent(updatePartEmployeeTitle))
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(updatePartButton)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         partActionTab.addTab("Update", updatePanel);
@@ -415,7 +403,7 @@ public class ProductScene extends javax.swing.JPanel {
         deletePanelLayout.setVerticalGroup(
             deletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePanelLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(deletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deletePartNoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deletePartNoTitle))
@@ -825,14 +813,6 @@ public class ProductScene extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_addPartEmployeeTextActionPerformed
 
-    private void updatePartEmployeeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePartEmployeeTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updatePartEmployeeTextActionPerformed
-
-    private void updatePartMachineTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePartMachineTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updatePartMachineTextActionPerformed
-
     private void updatePartCostTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePartCostTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_updatePartCostTextActionPerformed
@@ -866,6 +846,15 @@ public class ProductScene extends javax.swing.JPanel {
             System.err.println("SQLException: " + ex.getMessage());
         }
     }//GEN-LAST:event_addPartButtonActionPerformed
+
+    private void updatePartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePartButtonActionPerformed
+        // TODO add your handling code here:
+         try {
+            updatePart();
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_updatePartButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -926,10 +915,6 @@ public class ProductScene extends javax.swing.JPanel {
     private javax.swing.JLabel updatePartCostTitle;
     private javax.swing.JTextField updatePartDescriptionText;
     private javax.swing.JLabel updatePartDescriptionTitle;
-    private javax.swing.JTextField updatePartEmployeeText;
-    private javax.swing.JLabel updatePartEmployeeTitle;
-    private javax.swing.JTextField updatePartMachineText;
-    private javax.swing.JLabel updatePartMachineTitle;
     private javax.swing.JTextField updatePartNoText;
     private javax.swing.JLabel updatePartNoTitle;
     private javax.swing.JButton updateProductAssembleButton;

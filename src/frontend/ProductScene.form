@@ -223,7 +223,7 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="addPartButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="24" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -294,26 +294,22 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="updatePartEmployeeTitle" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="updatePartDescriptionTitle" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="updatePartCostTitle" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="updatePartMachineTitle" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="updatePartNoTitle" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="updatePartNoText" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
                                   <Component id="updatePartCostText" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
-                                  <Component id="updatePartMachineText" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
-                                  <Component id="updatePartEmployeeText" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
                                   <Component id="updatePartDescriptionText" min="-2" pref="148" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="39" max="32767" attributes="0"/>
+                              <EmptySpace pref="24" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="updatePartButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -335,36 +331,14 @@
                                   <Component id="updatePartCostText" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="updatePartCostTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="updatePartMachineText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="updatePartMachineTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="updatePartEmployeeText" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="updatePartButton" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="updatePartEmployeeTitle" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="updatePartButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="42" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="updatePartEmployeeText">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updatePartEmployeeTextActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="updatePartMachineText">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updatePartMachineTextActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="updatePartCostText">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updatePartCostTextActionPerformed"/>
@@ -385,20 +359,13 @@
                         <Property name="text" type="java.lang.String" value="newPartCost"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="updatePartMachineTitle">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="newMachine"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="updatePartEmployeeTitle">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="newEmployee"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JButton" name="updatePartButton">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Update"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updatePartButtonActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="updatePartDescriptionText">
                       <Events>
@@ -444,7 +411,7 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="52" max="32767" attributes="0"/>
+                              <EmptySpace pref="47" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="deletePartNoText" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="deletePartNoTitle" alignment="3" min="-2" max="-2" attributes="0"/>
