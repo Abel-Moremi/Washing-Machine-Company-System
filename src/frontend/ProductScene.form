@@ -565,7 +565,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="addProductCostText" alignment="0" pref="99" max="32767" attributes="0"/>
-                                  <Component id="addProductnameText" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="addProductNameText" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                       <Component id="addProductButton" min="-2" max="-2" attributes="0"/>
@@ -581,7 +581,7 @@
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="addProductNameTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addProductnameText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addProductNameText" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -601,7 +601,7 @@
                         <Property name="text" type="java.lang.String" value="Name"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="addProductnameText">
+                    <Component class="javax.swing.JTextField" name="addProductNameText">
                     </Component>
                     <Component class="javax.swing.JLabel" name="addProductCostTitle">
                       <Properties>
@@ -614,6 +614,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Add"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addProductButtonActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

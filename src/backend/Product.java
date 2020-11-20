@@ -48,6 +48,29 @@ public class Product extends DataConnection{
         
         return productList;
     }
+     
+     public int getlastPNo() throws SQLException{
+        int lastDigits = 00;
+        String eno = "pd-100";
+        String last3Char = "100";
+        
+        String getMaxPNoStmt = "SELECT product_MNo "
+                + "FROM T_Product "
+                + "WHERE product_MNo = (SELECT MAX(product_MNo) FROM T_Product)";
+        
+        ResultSet rs = this.runStatement(getMaxPNoStmt);
+        
+        while(rs.next()){
+
+            eno = rs.getString("product_MNo");
+        }
+       
+        last3Char = eno.substring(Math.max(eno.length() - 3, 0));
+        
+        lastDigits = Integer.parseInt(last3Char) + 1;
+        
+        return lastDigits;
+    }
 
     public void addProduct(String prNo, String name, String cost){
         String addProductStmt = "INSERT INTO T_Product (product_MNo, product_PrName, product_cost)" 

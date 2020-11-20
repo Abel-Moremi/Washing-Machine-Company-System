@@ -148,11 +148,41 @@ public class ProductScene extends javax.swing.JPanel {
             
     }
      
+    public void showProduct(String pNo) throws SQLException{
+        clearProductTable();
+        ArrayList<String[]> list = productData.getProduct(pNo);
+        DefaultTableModel model = (DefaultTableModel) showProductTable.getModel();
+        Object[] row = new Object[3];
+            
+        for(String[] array: list){
+            row[0] = array[0];
+            row[1] = array[1];
+            row[2] = array[2];
+            model.addRow(row);
+        }
+            
+    }
+     
      public void clearProductTable(){
         DefaultTableModel model = (DefaultTableModel) showProductTable.getModel();
         if(model.getRowCount() > 0){
             model.setRowCount(0);
         }
+    }
+     
+      public void addProduct() throws SQLException{
+        String pNo ="pd-" + productData.getlastPNo();
+        String pName = addProductNameText.getText();
+        String pCost = addProductCostText.getText();
+        
+        productData.addProduct(pNo, pName, pCost);
+        showProduct(pNo);
+        clearAddProductFields();
+    }
+      
+    public void clearAddProductFields(){
+        addProductNameText.setText(" ");
+        addProductCostText.setText(" ");
     }
 
     /**
@@ -200,7 +230,7 @@ public class ProductScene extends javax.swing.JPanel {
         productActionTab = new javax.swing.JTabbedPane();
         addProductPane = new javax.swing.JPanel();
         addProductNameTitle = new javax.swing.JLabel();
-        addProductnameText = new javax.swing.JTextField();
+        addProductNameText = new javax.swing.JTextField();
         addProductCostTitle = new javax.swing.JLabel();
         addProductCostText = new javax.swing.JTextField();
         addProductButton = new javax.swing.JButton();
@@ -517,6 +547,11 @@ public class ProductScene extends javax.swing.JPanel {
         addProductCostTitle.setText("Cost");
 
         addProductButton.setText("Add");
+        addProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addProductButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout addProductPaneLayout = new javax.swing.GroupLayout(addProductPane);
         addProductPane.setLayout(addProductPaneLayout);
@@ -530,7 +565,7 @@ public class ProductScene extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addProductPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(addProductCostText, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                    .addComponent(addProductnameText)
+                    .addComponent(addProductNameText)
                     .addGroup(addProductPaneLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(addProductButton)))
@@ -542,7 +577,7 @@ public class ProductScene extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(addProductPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addProductNameTitle)
-                    .addComponent(addProductnameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addProductNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(addProductPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addProductCostTitle)
@@ -929,6 +964,15 @@ public class ProductScene extends javax.swing.JPanel {
         }     
     }//GEN-LAST:event_refreshProductButtonActionPerformed
 
+    private void addProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductButtonActionPerformed
+        // TODO add your handling code here:
+          try {
+            addProduct();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }     
+    }//GEN-LAST:event_addProductButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addPanel;
@@ -950,9 +994,9 @@ public class ProductScene extends javax.swing.JPanel {
     private javax.swing.JButton addProductButton;
     private javax.swing.JTextField addProductCostText;
     private javax.swing.JLabel addProductCostTitle;
+    private javax.swing.JTextField addProductNameText;
     private javax.swing.JLabel addProductNameTitle;
     private javax.swing.JPanel addProductPane;
-    private javax.swing.JTextField addProductnameText;
     private javax.swing.JPanel deletePanel;
     private javax.swing.JButton deletePartButton;
     private javax.swing.JTextField deletePartNoText;
