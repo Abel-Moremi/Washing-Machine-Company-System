@@ -6,18 +6,51 @@
 
 package frontend;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import backend.Machine;
+
 /**
  *
  * @author 201503625
  */
 public class MachineScene extends javax.swing.JPanel {
+    
+    Machine machineData;
 
     /**
      * Creates new form MachineScene
      */
     public MachineScene() {
         initComponents();
+        
+        machineData = new Machine();
     }
+    
+    public void showMachines() throws SQLException{
+        clearMachineTable();
+        ArrayList<String[]> list = machineData.getAllMachines();
+        DefaultTableModel model = (DefaultTableModel) machineDisplayTable.getModel();
+        Object[] row = new Object[4];
+            
+        for(String[] array: list){
+            row[0] = array[0];
+            row[1] = array[1];
+            row[2] = array[2];
+            row[3] = array[3];
+            model.addRow(row);
+        }
+            
+    }
+    
+     public void clearMachineTable(){
+        DefaultTableModel model = (DefaultTableModel) machineDisplayTable.getModel();
+        if(model.getRowCount() > 0){
+            model.setRowCount(0);
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -366,7 +399,11 @@ public class MachineScene extends javax.swing.JPanel {
 
     private void refreshMachineListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshMachineListButtonActionPerformed
         // TODO add your handling code here:
-        
+         try {
+            showMachines();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }     
     }//GEN-LAST:event_refreshMachineListButtonActionPerformed
 
     private void updateMachineSupervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMachineSupervisorActionPerformed
