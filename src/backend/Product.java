@@ -1,6 +1,8 @@
 package backend;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -8,17 +10,43 @@ import java.sql.ResultSet;
  */
 
 public class Product extends DataConnection{
-
-    public ResultSet getProducts(){
-        String stmt = "SELECT * T_Product";
+    
+    public ArrayList<String[]> getProducts() throws SQLException{
+        String stmt = "SELECT * FROM T_Product";
         ResultSet rs = this.runStatement(stmt);
-        return rs;
+        
+        ArrayList<String[]> productList = new ArrayList<>();
+        
+        while(rs.next()){
+            
+            String[] temp = new String[3];
+            temp[0] = rs.getString("product_MNo");
+            temp[1] = rs.getString("product_PrName");
+            temp[2] = rs.getString("product_cost");
+            
+            productList.add(temp);
+        }
+        
+        return productList;
     }
-
-    public ResultSet getProduct(String prNo){
+    
+     public ArrayList<String[]> getProduct(String prNo) throws SQLException{
         String stmt = "SELECT * FROM T_Product WHERE product_MNo ='"+prNo+"'";
         ResultSet rs = this.runStatement(stmt);
-        return rs;
+        
+        ArrayList<String[]> productList = new ArrayList<>();
+        
+        while(rs.next()){
+            
+            String[] temp = new String[3];
+            temp[0] = rs.getString("product_MNo");
+            temp[1] = rs.getString("product_PrName");
+            temp[2] = rs.getString("product_cost");
+            
+            productList.add(temp);
+        }
+        
+        return productList;
     }
 
     public void addProduct(String prNo, String name, String cost){

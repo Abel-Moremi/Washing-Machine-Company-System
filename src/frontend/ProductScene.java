@@ -7,6 +7,7 @@
 package frontend;
 
 import backend.Part;
+import backend.Product;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -18,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class ProductScene extends javax.swing.JPanel {
     
     Part partData;
+    Product productData;
 
     /**
      * Creates new form Product
@@ -26,6 +28,7 @@ public class ProductScene extends javax.swing.JPanel {
         initComponents();
         
         partData = new Part();
+        productData = new Product();
         
     }
     
@@ -33,7 +36,7 @@ public class ProductScene extends javax.swing.JPanel {
      * Part User Defined functions
      */
     public void showParts() throws SQLException{
-        clearTable();
+        clearPartTable();
         ArrayList<String[]> list = partData.getAllParts();
         DefaultTableModel model = (DefaultTableModel) showPartTable.getModel();
         Object[] row = new Object[6];
@@ -51,7 +54,7 @@ public class ProductScene extends javax.swing.JPanel {
     }
     
     public void showPart(String PNo) throws SQLException{
-        clearTable();
+        clearPartTable();
         ArrayList<String[]> list = partData.getAllPart(PNo);
         DefaultTableModel model = (DefaultTableModel) showPartTable.getModel();
         Object[] row = new Object[6];
@@ -68,7 +71,7 @@ public class ProductScene extends javax.swing.JPanel {
             
     }
     
-    public void clearTable(){
+    public void clearPartTable(){
         DefaultTableModel model = (DefaultTableModel) showPartTable.getModel();
         if(model.getRowCount() > 0){
             model.setRowCount(0);
@@ -120,6 +123,36 @@ public class ProductScene extends javax.swing.JPanel {
     
      public void clearDeletePartField(){
         deletePartNoText.setText(" ");
+    }
+     
+    /**
+     * End Part User Defined functions
+     */
+     
+     /**
+     * Product User Defined functions
+     */
+     
+     public void showProducts() throws SQLException{
+        clearProductTable();
+        ArrayList<String[]> list = productData.getProducts();
+        DefaultTableModel model = (DefaultTableModel) showProductTable.getModel();
+        Object[] row = new Object[3];
+            
+        for(String[] array: list){
+            row[0] = array[0];
+            row[1] = array[1];
+            row[2] = array[2];
+            model.addRow(row);
+        }
+            
+    }
+     
+     public void clearProductTable(){
+        DefaultTableModel model = (DefaultTableModel) showProductTable.getModel();
+        if(model.getRowCount() > 0){
+            model.setRowCount(0);
+        }
     }
 
     /**
@@ -473,6 +506,11 @@ public class ProductScene extends javax.swing.JPanel {
         }
 
         refreshProductButton.setText("Refresh");
+        refreshProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshProductButtonActionPerformed(evt);
+            }
+        });
 
         addProductNameTitle.setText("Name");
 
@@ -881,6 +919,15 @@ public class ProductScene extends javax.swing.JPanel {
             System.err.println("SQLException: " + ex.getMessage());
         }
     }//GEN-LAST:event_deletePartButtonActionPerformed
+
+    private void refreshProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshProductButtonActionPerformed
+        // TODO add your handling code here:
+         try {
+            showProducts();  
+        } catch (Exception ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        }     
+    }//GEN-LAST:event_refreshProductButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
